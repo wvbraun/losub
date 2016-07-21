@@ -1,7 +1,7 @@
 "use strict";
 
 import ClypApi from "../api/mockClypApi";
-import * as types from "./actionTypes";
+import types from "./actionTypes";
 
 
 export function loadPlaylistsSuccess(playlists) {
@@ -28,11 +28,11 @@ export function loadPlaylists() {
   };
 }
 
-export function savePlaylist() {
+export function savePlaylist(playlist) {
   return (dispatch) => {
-    return ClypApi.savePlaylist()
-      .then((playlist) => {
-        dispatch(createPlaylistSuccess(playlist));
+    return ClypApi.savePlaylist(playlist)
+      .then((savedPlaylist) => {
+        dispatch(createPlaylistSuccess(savedPlaylist));
       })
       .catch((error) => {
         throw(error);

@@ -60,22 +60,26 @@ class ClypApi {
     playlist = Object.assign({}, playlist); // immutable, so need to avoid mutating object passed in.
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const minPlalyistTitleLength = 1;
-        if (playlist.title.length < minPlalyistTitleLength) {
-          reject(`Title must be at least ${minPlalyistTitleLength} characters.`);
+        const minPlalyistNameLength = 1;
+        if (playlist.Name.length < minPlalyistNameLength) {
+          reject(`Title must be at least ${minPlalyistNameLength} characters.`);
         }
 
-        if (playlist.playlistId) {
+        if (playlist.PlaylistId) {
           const existingPlaylistIndex = playlists.findIndex(p => p.id == playlist.id);
           playlists.splice(existingPlaylistIndex, 1, playlist);
         } else {
-          playlist.playlistId = _generateId();
+          playlist.PlaylistId = _generateId();
           //playlist.watchHref = `https://clyp.it/playlist/${playlist.playlistId}`;
           playlists.push(playlist);
         }
         resolve(playlist);
       }, delay);
     });
+  }
+
+  static deletePlaylist(playlist) {
+    
   }
 }
 
