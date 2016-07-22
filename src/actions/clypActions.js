@@ -16,6 +16,10 @@ export function createPlaylistSuccess(playlist) {
     return { type: types.CREATE_PLAYLIST_SUCCESS, playlist };
 }
 
+export function createTrackSuccess(track) {
+  return { type: types.CREATE_TRACK_SUCCESS, track };
+}
+
 export function loadPlaylists() {
   return (dispatch) => {
       return ClypApi.getAllPlaylists()
@@ -40,11 +44,23 @@ export function savePlaylist(playlist) {
   };
 }
 
-export function loadTracks() {
+export function loadTracks(playlist) {
   return (dispatch) => {
-    return ClypApi.getAllTracks()
+    return ClypApi.getAllTracks(playlist)
       .then((tracks) => {
         dispatch(loadTracksSuccess(tracks));
+      })
+      .catch((error) => {
+        throw(error);
+      });
+  };
+}
+
+export function saveTrack(track) {
+  return (dispatch) => {
+    return ClypApi.saveTrack(track)
+      .then((savedTrack) => {
+        dispatch(createTrackSuccess(savedTrack));
       })
       .catch((error) => {
         throw(error);

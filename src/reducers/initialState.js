@@ -1,6 +1,6 @@
 "use strict";
 
 export default {
-  playlists: [],
-  tracks: []
+  playlist: { Name: "", AudioFiles: [] },
+  playlists: []
 };

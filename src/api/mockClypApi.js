@@ -31,12 +31,16 @@ const playlists = [
   }
 ];
 
-const tracks = [
-
-];
-
 const _generateId = () => {
   return Math.random().toString(36).substr(2,8);
+};
+
+const _getTracks = () => {
+  var tracks = [];
+  for (var i = 0; i < playlists.length; ++i) {
+    tracks.push(playlists[i].AudioFiles);
+  }
+  return tracks;
 };
 
 class ClypApi {
@@ -51,13 +55,14 @@ class ClypApi {
   static getAllTracks() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(Object.assigne([], tracks));
+        resolve(Object.assign([], playlists));
       }, delay);
     });
   }
 
   static savePlaylist(playlist) {
-    playlist = Object.assign({}, playlist); // immutable, so need to avoid mutating object passed in.
+    playlist = Object.assign({}, playlist);
+
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const minPlalyistNameLength = 1;
@@ -66,11 +71,10 @@ class ClypApi {
         }
 
         if (playlist.PlaylistId) {
-          const existingPlaylistIndex = playlists.findIndex(p => p.id == playlist.id);
+          const existingPlaylistIndex = playlists.findIndex(p => p.PlaylistId == playlist.PlaylistId);
           playlists.splice(existingPlaylistIndex, 1, playlist);
         } else {
           playlist.PlaylistId = _generateId();
-          //playlist.watchHref = `https://clyp.it/playlist/${playlist.playlistId}`;
           playlists.push(playlist);
         }
         resolve(playlist);
@@ -79,7 +83,7 @@ class ClypApi {
   }
 
   static deletePlaylist(playlist) {
-    
+
   }
 }
 

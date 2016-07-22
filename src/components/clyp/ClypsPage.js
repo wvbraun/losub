@@ -4,8 +4,7 @@ import React, { PropTypes } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { browserHistory } from "react-router";
-import ClypPlaylist from "./ClypPlaylist";
-import SelectInput from "../common/SelectInput";
+import ClypsList from "./ClypsList";
 import * as clypActions  from "../../actions/clypActions";
 
 class ClypsPage extends React.Component {
@@ -30,7 +29,7 @@ class ClypsPage extends React.Component {
                  className="btn btn-primary"
                  onClick={this.redirectToCreatePlaylistPage} />
         </div>
-        <ClypPlaylist playlists={playlists} />
+        <ClypsList playlists={playlists} />
       </div>
     );
   }
@@ -42,7 +41,6 @@ ClypsPage.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-  debugger;
   return {
     playlists: state.playlists
   };

@@ -3,23 +3,17 @@
 import initialState from "./initialState";
 import types from "../actions/actionTypes";
 
-export default function clypPlaylistReducer(state = initialState.playlists, action) {
+export default function clypPlaylistReducer(state = initialState.playlist, action) {
   switch (action.type) {
-    case types.LOAD_PLAYLISTS_SUCCESS:
-      return action.playlists;
+    case types.LOAD_TRACKS_SUCCESS:
+      debugger;
+      return action.playlist;
 
-    case types.CREATE_PLAYLIST_SUCCESS:
+    case types.CREATE_TRACK_SUCCESS:
       return [
         ...state,
         Object.assign({}, action.playlist)
       ];
-
-    /*case types.UPDATE_COURSE_SUCCESS:
-      return [
-        ...state.filter((course) => course.id !== action.course.id),
-        Object.assign({}, action.course)
-      ];
-    */
 
     default:
       return state;
