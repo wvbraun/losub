@@ -3,7 +3,7 @@
 import initialState from "./initialState";
 import types from "../actions/actionTypes";
 
-export default function clypPlaylistsReducer(state = initialState.playlists, action) {
+export default function clypReducer(state = initialState.playlists, action) {
   switch (action.type) {
     case types.LOAD_PLAYLISTS_SUCCESS:
       return action.playlists;

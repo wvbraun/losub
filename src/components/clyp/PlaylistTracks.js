@@ -4,10 +4,10 @@ import React, { PropTypes } from "react";
 import PlaylistTracksRow from "./PlaylistTracksRow";
 
 const PlaylistTracks = ({ playlist }) => {
-  const _tracks = playlist.AudioFiles;
+  const tracks = playlist.AudioFiles;
   return (
     <div>
-      <h1 className="pull-left">playlist.Name</h1>
+      <h1 className="pull-left">{playlist.Name}</h1>
       <table className="table">
         <thead>
           <tr>
@@ -17,8 +17,8 @@ const PlaylistTracks = ({ playlist }) => {
           </tr>
         </thead>
         <tbody>
-        {_tracks.map((track) =>
-            <PlaylistTracksRow track={track} />
+        {tracks.map((track) =>
+            <PlaylistTracksRow key={track.AudioFileId} track={track} />
         )}
         </tbody>
       </table>

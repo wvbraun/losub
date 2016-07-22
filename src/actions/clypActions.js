@@ -3,13 +3,8 @@
 import ClypApi from "../api/mockClypApi";
 import types from "./actionTypes";
 
-
 export function loadPlaylistsSuccess(playlists) {
   return { type: types.LOAD_PLAYLISTS_SUCCESS, playlists };
-}
-
-export function loadTracksSuccess(tracks) {
-  return { type: types.LOAD_TRACKS_SUCCESS, tracks };
 }
 
 export function createPlaylistSuccess(playlist) {
@@ -37,18 +32,6 @@ export function savePlaylist(playlist) {
     return ClypApi.savePlaylist(playlist)
       .then((savedPlaylist) => {
         dispatch(createPlaylistSuccess(savedPlaylist));
-      })
-      .catch((error) => {
-        throw(error);
-      });
-  };
-}
-
-export function loadTracks(playlist) {
-  return (dispatch) => {
-    return ClypApi.getAllTracks(playlist)
-      .then((tracks) => {
-        dispatch(loadTracksSuccess(tracks));
       })
       .catch((error) => {
         throw(error);

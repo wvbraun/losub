@@ -8,13 +8,11 @@ import { Provider } from "react-redux";
 import { Router, browserHistory } from "react-router";
 import routes from "./routes";
 import { loadPlaylists } from "./actions/clypActions";
-import { loadTracks } from "./actions/clypActions";
 // import "./styles/styles.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 const store = configureStore();
 store.dispatch(loadPlaylists());
-store.dispatch(loadTracks());
 
 render(
     <Provider store={store}>

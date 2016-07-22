@@ -6,9 +6,9 @@ import { Link } from "react-router";
 const PlaylistTracksRow = ({ track }) => {
   return (
       <tr>
-        <td>track.Title</td>
-        <td>track.Duration</td>
-        <td>track.ListenCount</td>
+        <td>{track.Title}</td>
+        <td>{track.Duration}</td>
+        <td>{track.ListenCount}</td>
       </tr>
   );
 };

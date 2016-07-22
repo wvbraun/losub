@@ -35,14 +35,6 @@ const _generateId = () => {
   return Math.random().toString(36).substr(2,8);
 };
 
-const _getTracks = () => {
-  var tracks = [];
-  for (var i = 0; i < playlists.length; ++i) {
-    tracks.push(playlists[i].AudioFiles);
-  }
-  return tracks;
-};
-
 class ClypApi {
   static getAllPlaylists() {
       return new Promise((resolve, reject) => {
@@ -51,15 +43,7 @@ class ClypApi {
         }, delay);
       });
   }
-
-  static getAllTracks() {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(Object.assign([], playlists));
-      }, delay);
-    });
-  }
-
+  
   static savePlaylist(playlist) {
     playlist = Object.assign({}, playlist);
 

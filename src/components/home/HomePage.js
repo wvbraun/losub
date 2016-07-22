@@ -1,13 +1,13 @@
 "use strict";
 
 import React from "react";
-import {Link} from "react-router";
+import { Link } from "react-router";
 
 class HomePage extends React.Component {
   render() {
     return (
       <div className="jumbotron">
-        <h1>Sublo</h1>
+        <h1>llo</h1>
         <Link to="about" className="btn btn-primary btn-lg">Learn More</Link>
       </div>
     );

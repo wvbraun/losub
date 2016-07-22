@@ -1,11 +1,9 @@
 "use strict";
 
 import { combineReducers } from "redux";
-import playlists from "./clypPlaylistsReducer";
-import playlist from "./clypPlaylistReducer";
+import playlists from "./clypReducer";
 
 const rootReducer = combineReducers({
-  playlist: playlist,
   playlists: playlists
 });
 
