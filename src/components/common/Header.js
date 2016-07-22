@@ -9,8 +9,8 @@ const Header = () => {
       <div className="container-fluid">
         <ul className="nav navbar-nav">
           <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
-          <li><Link to="about" activeClassName="active">About</Link></li>
-          <li><Link to="clyps" activeClassName="active">Clyps</Link></li>
+          <li><Link to="/about" activeClassName="active">About</Link></li>
+          <li><Link to="/clyps" activeClassName="active">Clyps</Link></li>
         </ul>
       </div>
     </nav>
