@@ -12,9 +12,9 @@ import CreatePlaylistPage from "./components/clyp/CreatePlaylistPage";
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
-    <Route path="about" component={AboutPage} />
-    <Route path="clyps" component={ClypsPage} />
-    <Route path="clyps/playlist" component={CreatePlaylistPage} />
-    <Route path="clyps/playlist/:id" component={PlaylistPage} />
+    <Route path="/about" component={AboutPage} />
+    <Route path="/clyps" component={ClypsPage} />
+    <Route path="/clyps/playlist" component={CreatePlaylistPage} />
+    <Route path="/clyps/playlist/:id" component={PlaylistPage} />
   </Route>
 );
