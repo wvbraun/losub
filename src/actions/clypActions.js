@@ -1,6 +1,7 @@
 "use strict";
 
-import ClypApi from "../api/mockClypApi";
+//import ClypApi from "../api/mockClypApi";
+import ClypApi from "../api/clypApi";
 import types from "./actionTypes";
 
 export function loadPlaylistsSuccess(playlists) {
@@ -39,6 +40,7 @@ export function savePlaylist(playlist) {
   };
 }
 
+/*
 export function saveTrack(track) {
   return (dispatch) => {
     return ClypApi.saveTrack(track)
@@ -50,3 +52,4 @@ export function saveTrack(track) {
       });
   };
 }
+*/

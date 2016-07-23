@@ -2,11 +2,11 @@
 
 import open from "open";
 import path from "path";
+import routes from "./routes";
 import express from "express";
 import webpack from "webpack";
 import mongoose from "mongoose";
-import config from "../config";
-import Clyp from "../src/models/Clyp";
+import expressConfig from "./config/express";
 import webpackConfig from "../webpack.config.dev";
 
 // import logger from "morgan";
@@ -16,13 +16,17 @@ import webpackConfig from "../webpack.config.dev";
 const app = express();
 const compiler = webpack(webpackConfig);
 
-mongoose.connect(config.database);
+const database = process.env.MONGO_URI || "mongodb://localhost/losub";
+
+mongoose.connect(database);
 mongoose.connection.on("error", () => {
     console.info("Error: Could not connect to MongoDB. Did you forget to run `mongod`");
+//    console.error(err)
+    //process.exit(-1);
 });
 
 app.disable("etag");
-app.set("port", process.env.PORT || 8080);
+app.set("port", port);
 // app.use(logger("dev"));
 app.use(require("webpack-dev-middleware")(compiler, {
   noInfo: true,
@@ -31,11 +35,15 @@ app.use(require("webpack-dev-middleware")(compiler, {
 
 app.use(require("webpack-hot-middleware")(compiler));
 
+expressConfig(app);
+routes(app);
+
 app.get("*", function(req, res) {
   res.sendFile(path.join( __dirname, "../src/index.html"));
 });
 
-const port = app.get("port");
+const port = process.env.PORT || 8080;
+
 app.listen(port, (err) => {
   if (err) {
     console.log(err);
