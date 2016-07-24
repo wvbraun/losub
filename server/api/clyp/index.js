@@ -21,7 +21,7 @@ router.get("/playlists", (req, res, next) => {
     if (!clyps) {
       return errorHandler(res, { err: err }, 404);
     }
-
+    console.log(clyps[0]);
     return res.status(200).json(clyps);
   })
 });

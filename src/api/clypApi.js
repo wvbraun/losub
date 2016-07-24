@@ -5,9 +5,10 @@ import fetch from "isomorphic-fetch";
 class ClypApi {
   static getAllPlaylists() {
       return new Promise((resolve, reject) => {
+        debugger;
         fetch("/api/clyps/playlists")
           .then((response) => {
-              response.json();
+              return response.json();
           })
           .then((playlists) => {
             resolve(Object.assign([], playlists));
