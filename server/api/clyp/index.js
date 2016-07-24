@@ -36,27 +36,23 @@ router.post("/playlist", (req, res, next) => {
     }
   };
 
-  debugger;
   fetch("https://api.clyp.it/playlist", config)
     .then((response) => {
         return response.json();
     })
     .then((json) => {
-      console.log(json.PlaylistId);
-      playlist.PlaylistId = json.PlaylistId;
-      Object.assign({}, playlist);
+      playlist = Object.assign({}, playlist, { PlaylistId: json.PlaylistId });
+      let clyp = new Clyp(playlist);
+      clyp.save((err) => {
+        if (err) {
+          return errorHandler(res, { err: err }, 400);
+        }
+        return res.status(200).json(clyp);
+      });
     })
     .catch((error) => {
       throw(error);
     });
-
-  let clyp = new Clyp(playlist);
-  clyp.save((err) => {
-    if (err) {
-      return errorHandler(res, { err: err }, 400);
-    }
-    return res.status(200).json(clyp);
-  })
 });
 
 export default router;
