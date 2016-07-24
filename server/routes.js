@@ -3,5 +3,5 @@
 import clyp from "./api/clyp";
 
 export default function(app) {
-    app.use("/api/clyps", clyp);
+  app.use("/api/clyps", clyp);
 }

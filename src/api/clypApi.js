@@ -30,23 +30,23 @@ class ClypApi {
     };
 
     return new Promise((resolve, reject) => {
-        fetch("/api/clyps/playlist", config)
-          .then((response) => {
-            response.json()
-              .then((playlist) => {
-                const minLength = 1;
-                debugger;
-                if (playlist.Name.length < minLength) {
-                  reject(`Title must be at least ${minLength} characters`);
-                } else {
-                  resolve(Object.assign({}, playlist));
-                }
-              });
-            })
-          .catch((error) => {
-            throw(error);
-          });
+      fetch("/api/clyps/playlist", config)
+        .then((response) => {
+          return response.json();
+        })
+        .then((json) => {
+          const minLength = 1;
+          if (json.Name.length < minLength) {
+            reject(`Name must be at least ${minLength} characters.`);
+          } else {
+            resolve(Object.assign({}, json));
+          }
+        })
+        .catch((error) => {
+          throw(error);
+        });
     });
+  }
 /*
 
     return new Promise((resolve, reject) => {
@@ -91,7 +91,6 @@ class ClypApi {
       }, delay);
     });
     */
-  }
 
   static deletePlaylist(playlist) {
 

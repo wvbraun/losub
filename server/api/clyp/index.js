@@ -2,11 +2,9 @@
 
 import express from "express";
 import Clyp from "./clyp.model";
+import fetch from "isomorphic-fetch";
 
-//import parser from "body-parser";
 // this could also be in a ../routes dir, and perhaps it should be..
-
-//  router.use(parser.json());
 
 const router = express.Router();
 
@@ -29,9 +27,30 @@ router.get("/playlists", (req, res, next) => {
 });
 
 router.post("/playlist", (req, res, next) => {
+  let playlist = req.body;
+  let config = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    }
+  };
+
   debugger;
-  console.log(req.body);
-  let clyp = new Clyp(req.body);
+  fetch("https://api.clyp.it/playlist", config)
+    .then((response) => {
+        return response.json();
+    })
+    .then((json) => {
+      console.log(json.PlaylistId);
+      playlist.PlaylistId = json.PlaylistId;
+      Object.assign({}, playlist);
+    })
+    .catch((error) => {
+      throw(error);
+    });
+
+  let clyp = new Clyp(playlist);
   clyp.save((err) => {
     if (err) {
       return errorHandler(res, { err: err }, 400);

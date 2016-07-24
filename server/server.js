@@ -1,5 +1,6 @@
 "use strict";
 
+import cors from "cors";
 import open from "open";
 import path from "path";
 import routes from "./routes";
@@ -8,6 +9,8 @@ import webpack from "webpack";
 import mongoose from "mongoose";
 import expressConfig from "./config/express";
 import webpackConfig from "../webpack.config.dev";
+import wpDevMiddleware from "webpack-dev-middleware";
+import wpHotMiddleware from "webpack-hot-middleware";
 
 // import logger from "morgan";
 
@@ -28,13 +31,22 @@ mongoose.connection.on("error", () => {
 app.disable("etag");
 app.set("port", port);
 // app.use(logger("dev"));
-app.use(require("webpack-dev-middleware")(compiler, {
+app.use(wpDevMiddleware(compiler, {
   noInfo: true,
   publicPath: webpackConfig.output.publicPath
 }));
 
-app.use(require("webpack-hot-middleware")(compiler));
+app.use(wpHotMiddleware(compiler));
 
+/*
+app.all('*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
+*/
+
+app.use(cors());
 expressConfig(app);
 routes(app);
 

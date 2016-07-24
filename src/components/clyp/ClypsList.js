@@ -13,8 +13,8 @@ const ClypsList = ({ playlists }) => {
         </tr>
       </thead>
       <tbody>
-      {playlists.map((playlist) =>
-          <ClypsListRow key={playlist.PlaylistId} playlist={playlist} />
+      {playlists.map((playlist, i) =>
+          <ClypsListRow key={i} playlist={playlist} />
       )}
       </tbody>
     </table>
