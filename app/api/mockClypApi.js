@@ -4,7 +4,7 @@ import delay from "./delay";
 
 const playlists = [
   {
-    "Name": "test",
+    "Title": "test",
     "PlaylistId": "f3qoylju",
     "AudioFiles": [
       {
@@ -43,7 +43,7 @@ class ClypApi {
         }, delay);
       });
   }
-  
+
   static savePlaylist(playlist) {
     playlist = Object.assign({}, playlist);
 

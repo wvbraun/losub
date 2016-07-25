@@ -3,7 +3,7 @@
 import React, { PropTypes } from "react";
 import { Link } from "react-router";
 
-const PlaylistTracksRow = ({ track }) => {
+const ClypListRow = ({ track }) => {
   return (
       <tr>
         <td>{track.Title}</td>
@@ -13,8 +13,8 @@ const PlaylistTracksRow = ({ track }) => {
   );
 };
 
-PlaylistTracksRow.propTypes = {
+ClypListRow.propTypes = {
   track: PropTypes.object.isRequired
 };
 
-export default PlaylistTracksRow;
+export default ClypListRow;

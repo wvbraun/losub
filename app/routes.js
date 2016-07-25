@@ -6,15 +6,17 @@ import App from "./components/app";
 import HomePage from "./components/home/HomePage";
 import AboutPage from "./components/about/AboutPage";
 import ClypsPage from "./components/clyp/ClypsPage";
-import PlaylistPage from "./components/clyp/PlaylistPage";
-import CreatePlaylistPage from "./components/clyp/CreatePlaylistPage";
+import ClypPage from "./components/clyp/ClypPage";
+import NewTrackPage from "./components/clyp/NewTrackPage";
+import NewPlaylistPage from "./components/clyp/NewPlaylistPage";
 
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
     <Route path="/about" component={AboutPage} />
     <Route path="/clyps" component={ClypsPage} />
-    <Route path="/clyps/playlist" component={CreatePlaylistPage} />
-    <Route path="/clyps/playlists/:id" component={PlaylistPage} />
+    <Route path="/clyps/playlist" component={NewPlaylistPage} />
+    <Route path="/clyps/:id" component={ClypPage} />
+    <Route path="/clyps/:id/track" component={NewTrackPage} />
   </Route>
 );

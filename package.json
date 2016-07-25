@@ -4,9 +4,9 @@
   "description": "Experimental web app",
   "scripts": {
     "prestart": "babel-node server/tools/startMessage.js",
-    "start": "npm-run-all --parallel open:src lint:watch",
-    "open:src": "babel-node server/server.js",
-    "lint": "node_modules/.bin/esw webpack.config.* src tools",
+    "start": "npm-run-all --parallel open:app lint:watch",
+    "open:app": "babel-node server/server.js",
+    "lint": "node_modules/.bin/esw webpack.config.* app server",
     "lint:watch": "npm run lint -- --watch"
   },
   "author": "bp",

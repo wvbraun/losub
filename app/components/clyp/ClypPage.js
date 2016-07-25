@@ -3,16 +3,19 @@
 import React, { PropTypes } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import PlaylistTracks from "./PlaylistTracks";
+import { browserHistory } from "react-router";
+import ClypList from "./ClypList";
 import * as clypActions  from "../../actions/clypActions";
 
-class PlaylistPage extends React.Component {
+class ClypPage extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
       playlist: Object.assign({}, this.props.playlist),
       errors: {}
     };
+
+    this.redirectToNewTrackPage = this.redirectToNewTrackPage.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -21,14 +24,26 @@ class PlaylistPage extends React.Component {
     }
   }
 
+  redirectToNewTrackPage() {
+    browserHistory.push(`/clyps/{this.state.playlist.PlaylistId}/track`);
+  }
+
   render() {
     return (
-      <PlaylistTracks playlist={this.state.playlist} />
+      <div>
+        <div className="pull-right">
+            <input type="submit"
+                   value="Add Track"
+                   className="btn btn-primary"
+                   onClick={this.redirectToNewTrackPage} />
+          </div>
+        <ClypList playlist={this.state.playlist} />
+      </div>
     );
   }
 }
 
-PlaylistPage.propTypes = {
+ClypPage.propTypes = {
   playlist: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };
@@ -61,4 +76,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlaylistPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ClypPage);

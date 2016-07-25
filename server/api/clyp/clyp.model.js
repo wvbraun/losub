@@ -4,8 +4,9 @@
 import mongoose from "mongoose";
 
 const schema = mongoose.Schema({
-  Name: String,
+  Title: String,
   PlaylistId: String,
+  PlaylistUploadToken: String,
   AudioFiles: Array,
   Modifiable: Boolean,
   ContentAdministrator: Boolean,

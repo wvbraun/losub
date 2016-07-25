@@ -3,10 +3,10 @@
 import React, { PropTypes } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import CreatePlaylistForm from "./CreatePlaylistForm";
+import NewPlaylistForm from "./NewPlaylistForm";
 import * as clypActions from "../../actions/clypActions";
 
-class CreatePlaylistPage extends React.Component {
+class NewPlaylistPage extends React.Component {
   constructor(props, context) {
       super(props, context);
       this.state = {
@@ -44,7 +44,7 @@ class CreatePlaylistPage extends React.Component {
   render() {
     return (
       <div>
-        <CreatePlaylistForm
+        <NewPlaylistForm
           playlist={this.state.playlist}
           onSave={this.savePlaylist}
           onChange={this.updatePlaylistState}
@@ -55,13 +55,13 @@ class CreatePlaylistPage extends React.Component {
   }
 }
 
-CreatePlaylistPage.propTypes = {
+NewPlaylistPage.propTypes = {
   playlist: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };
 
 //  router is available on this.context.router
-CreatePlaylistPage.contextTypes = {
+NewPlaylistPage.contextTypes = {
   router: PropTypes.object
 };
 
@@ -77,7 +77,7 @@ function getPlaylistById(playlists, id) {
 function mapStateToProps(state, ownProps) {
   const playlistId = ownProps.params.id;
 
-  let playlist = { Name: "", PlaylistId: "", AudioFiles: [], Modifiable: "", ContentAdministrator: "", FeatureSubmissionEligibility: "" };
+  let playlist = { Title: "", PlaylistId: "", AudioFiles: [], Modifiable: "", ContentAdministrator: "", FeatureSubmissionEligibility: "" };
 
   if (playlistId && state.playlists.length > 0) {
     playlist = getPlaylistById(state.playlists, playlistId);
@@ -94,4 +94,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreatePlaylistPage);
+export default connect(mapStateToProps, mapDispatchToProps)(NewPlaylistPage);

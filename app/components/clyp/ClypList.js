@@ -1,13 +1,13 @@
 "use strict";
 
 import React, { PropTypes } from "react";
-import PlaylistTracksRow from "./PlaylistTracksRow";
+import ClypListRow from "./ClypListRow";
 
-const PlaylistTracks = ({ playlist }) => {
+const ClypList = ({ playlist }) => {
   const tracks = playlist.AudioFiles;
   return (
     <div>
-      <h1 className="pull-left">{playlist.Name}</h1>
+      <h1 className="pull-left">{playlist.Title}</h1>
       <table className="table">
         <thead>
           <tr>
@@ -18,7 +18,7 @@ const PlaylistTracks = ({ playlist }) => {
         </thead>
         <tbody>
         {tracks.map((track) =>
-            <PlaylistTracksRow key={track.AudioFileId} track={track} />
+            <ClypListRow key={track.AudioFileId} track={track} />
         )}
         </tbody>
       </table>
@@ -26,8 +26,8 @@ const PlaylistTracks = ({ playlist }) => {
   );
 };
 
-PlaylistTracks.propTypes = {
+ClypList.propTypes = {
   playlist: PropTypes.object.isRequired
 };
 
-export default PlaylistTracks;
+export default ClypList;

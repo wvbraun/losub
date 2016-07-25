@@ -6,7 +6,7 @@ import { Link } from "react-router";
 const ClypsListRow = ({ playlist }) => {
   return (
       <tr>
-        <td><Link to={"/clyps/playlists/" + playlist.PlaylistId}>{playlist.Name}</Link></td>
+        <td><Link to={"/clyps/" + playlist.PlaylistId}>{playlist.Title}</Link></td>
         <td>0</td>
       </tr>
   );

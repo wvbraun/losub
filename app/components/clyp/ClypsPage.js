@@ -11,10 +11,10 @@ class ClypsPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-    this.redirectToCreatePlaylistPage = this.redirectToCreatePlaylistPage.bind(this);
+    this.redirectToNewPlaylistPage = this.redirectToNewPlaylistPage.bind(this);
   }
 
-  redirectToCreatePlaylistPage() {
+  redirectToNewPlaylistPage() {
     browserHistory.push("/clyps/playlist");
   }
 
@@ -27,7 +27,7 @@ class ClypsPage extends React.Component {
           <input type="submit"
                  value="Add Playlist"
                  className="btn btn-primary"
-                 onClick={this.redirectToCreatePlaylistPage} />
+                 onClick={this.redirectToNewPlaylistPage} />
         </div>
         <ClypsList playlists={playlists} />
       </div>

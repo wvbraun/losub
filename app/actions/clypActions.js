@@ -40,7 +40,6 @@ export function savePlaylist(playlist) {
   };
 }
 
-/*
 export function saveTrack(track) {
   return (dispatch) => {
     return ClypApi.saveTrack(track)
@@ -52,4 +51,3 @@ export function saveTrack(track) {
       });
   };
 }
-*/
