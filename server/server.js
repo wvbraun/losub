@@ -19,7 +19,11 @@ import wpHotMiddleware from "webpack-hot-middleware";
 const app = express();
 const compiler = webpack(webpackConfig);
 
+const port = process.env.PORT || 8080;
 const database = process.env.MONGO_URI || "mongodb://localhost/losub";
+
+// process.env.HTTP_PROXY ="http://naproxy.gm.com:80";
+// process.env.HTTPS_PROXY = "http://naproxy.gm.com:80";
 
 mongoose.connect(database);
 mongoose.connection.on("error", () => {
@@ -38,14 +42,6 @@ app.use(wpDevMiddleware(compiler, {
 
 app.use(wpHotMiddleware(compiler));
 
-/*
-app.all('*', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
-});
-*/
-
 app.use(cors());
 expressConfig(app);
 routes(app);
@@ -53,8 +49,6 @@ routes(app);
 app.get("*", function(req, res) {
   res.sendFile(path.join( __dirname, "../app/index.html"));
 });
-
-const port = process.env.PORT || 8080;
 
 app.listen(port, (err) => {
   if (err) {

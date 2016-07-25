@@ -9,6 +9,7 @@ import ClypsPage from "./components/clyp/ClypsPage";
 import ClypPage from "./components/clyp/ClypPage";
 import NewTrackPage from "./components/clyp/NewTrackPage";
 import NewPlaylistPage from "./components/clyp/NewPlaylistPage";
+import NotFoundPage from "./components/common/NotFoundPage";
 
 export default (
   <Route path="/" component={App}>
@@ -18,5 +19,6 @@ export default (
     <Route path="/clyps/playlist" component={NewPlaylistPage} />
     <Route path="/clyps/:id" component={ClypPage} />
     <Route path="/clyps/:id/track" component={NewTrackPage} />
+    <Route path="*" component={NotFoundPage} />
   </Route>
 );

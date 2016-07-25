@@ -1,7 +1,7 @@
 "use strict";
 
 import express from "express";
-import compression from "compression";
+// import compression from "compression";
 import bodyParser from "body-parser";
 
 
