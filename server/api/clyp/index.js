@@ -8,7 +8,7 @@ import HttpsProxyAgent from "https-proxy-agent";
 // this could also be in a ../routes dir, and perhaps it should be..
 
 const router = express.Router();
-const agent = new HttpsProxyAgent("http://naproxy.gm.com:80");
+// const agent = new HttpsProxyAgent("http://naproxy.gm.com:80");
 
 const errorHandler = (res, err = null, status = 500) => {
   return res.status(status).json(err);
@@ -31,7 +31,7 @@ router.get("/playlists", (req, res, next) => {
 router.post("/playlist", (req, res, next) => {
   let playlist = req.body;
   let config = {
-    agent: agent,
+    // agent: agent,
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -62,7 +62,7 @@ router.post("/playlist", (req, res, next) => {
 router.post("/track", (req, res, next) => {
     let track = req.body;
     let config = {
-      agent: agent,
+      // agent: agent,
       method: "Post",
       body: "",
       headers: {
