@@ -1,6 +1,15 @@
 # SUBLO
 
 ---
+# todo
+
+it would be cool to do this stuff, some of it will be done tho.
+- boomin in browser (mb drums)
+- random page (press button, smt random happens)
+- art page (nostalgia)
+
+
+---
 ## tmp
 
 i had to install omni-fetch to get the fetch working behind a proxy, it had some dependencies that
