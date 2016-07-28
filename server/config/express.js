@@ -7,5 +7,7 @@ import bodyParser from "body-parser";
 
 export default function(app) {
   app.use(bodyParser.json());
-  app.use(express.static("./app/dist"));
+//  app.use("/static", express.static("public"));
+  app.use('/static', express.static(__dirname + '../app/public'));
+  app.use(express.static("../public"));
 }
