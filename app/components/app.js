@@ -10,7 +10,7 @@ import Sidebar from "./common/Sidebar";
 class App extends React.Component {
   render() {
     return (
-      <div className="container-fluid">
+      <div className="site-container">
         <Header />
         {this.props.children}
       </div>
