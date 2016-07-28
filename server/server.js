@@ -7,7 +7,7 @@ import routes from "./routes";
 import express from "express";
 import webpack from "webpack";
 import mongoose from "mongoose";
-import expressConfig from "./config/express";
+import bodyParser from "body-parser";
 import webpackConfig from "../webpack.config.dev";
 import wpDevMiddleware from "webpack-dev-middleware";
 import wpHotMiddleware from "webpack-hot-middleware";
@@ -40,7 +40,8 @@ app.use(wpDevMiddleware(compiler, {
 app.use(wpHotMiddleware(compiler));
 
 app.use(cors());
-expressConfig(app);
+app.use(bodyParser.json());
+app.use('/public', express.static(__dirname + '/public'));
 routes(app);
 
 app.get("*", function(req, res) {

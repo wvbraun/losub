@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { browserHistory } from "react-router";
 import ClypsList from "./ClypsList";
+import ClypHeader from "./ClypHeader";
 import * as clypActions  from "../../actions/clypActions";
 
 
@@ -25,20 +26,20 @@ class ClypsPage extends React.Component {
     browserHistory.push("/clyps/playlist");
   }
 
-  render() {
-    const { playlists } = this.props;
-    return (
-      <div>
-      <a className="logo-wrapper" href="/">
-        <img src="https://localhost:8080/public/img/logo/clyp-logo-primary-98x44.svg" className="logo" alt="Clyp logo"/>
-      </a>
-        <h1 className="pull-left">Clyps</h1>
-        <div className="pull-right">
+  /* old code to display add button
+<div className="pull-right">
           <input type="submit"
                  value="Add Playlist"
                  className="btn btn-primary"
                  onClick={this.redirectToNewPlaylistPage} />
         </div>
+        */
+
+  render() {
+    const { playlists } = this.props;
+    return (
+      <div>
+        <ClypHeader />
         <ClypsList playlists={playlists} />
       </div>
     );

@@ -17,3 +17,5 @@ needed to be installed
  - minimist, cli-rc, globby, jsonlint, denodeify, jjv, sync-request, 
  - mkdirp, lodash.memoize, caw
  
+
+* for the sidebar i was looking at react-sidebar and react-buger-menu
