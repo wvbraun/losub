@@ -10,12 +10,21 @@ import * as clypActions  from "../../actions/clypActions";
 class ClypPage extends React.Component {
   constructor(props, context) {
     super(props, context);
+    this.state = {
+      isShowingModal: false,
+      errors: {}
+    };
 
-    this.redirectToNewPlaylistPage = this.redirectToNewPlaylistPage.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
-  redirectToNewPlaylistPage() {
-    browserHistory.push("/clyps/playlist");
+  handleClick() {
+    this.setState({ isShowingModal: true });
+  }
+
+  handleClose() {
+    this.setState({ isShowingModal: false });
   }
 
   render() {

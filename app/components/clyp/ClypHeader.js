@@ -1,7 +1,8 @@
 "use strict";
 
-import React from "react";
+import React, { PropTypes } from "react";
 import { Link } from "react-router";
+import UploadModal from "../common/UploadModal";
 
 const ClypHeader = function() {
   return (
@@ -12,12 +13,17 @@ const ClypHeader = function() {
             <img src="/public/img/logo/clyp-logo-primary-98x44.svg" className="clyp-logo" alt="Clyp logo"/>
           </Link>
           <div className="nav-actions">
-            <button className="nav-action button upload-button primary tiny">Upload</button>
+            <div className="nav-action">
+              <UploadModal classes="button upload-button primary tiny" />
+            </div>
           </div>
         </div>
       </header>
     </div>
   );
+};
+
+ClypHeader.propTypes = {
 };
 
 export default ClypHeader;
