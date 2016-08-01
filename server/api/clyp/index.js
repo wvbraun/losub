@@ -1,6 +1,7 @@
 "use strict";
 
 import fetch from "node-fetch";
+// import fetch from "fetch-jsonp";
 import Clyp from "./clyp.model";
 import express from "express";
 import HttpsProxyAgent from "https-proxy-agent";
@@ -75,15 +76,13 @@ router.post("/playlist", (req, res, next) => {
 router.post('/upload', (req, res, next) => {
   console.log("inside clyp server api: track");
 //  console.log("body " + req.body);
-  const _track = req.body;
-  console.log("body " + _track);
-  let form = new FormData();
-  form.append("audioFile", JSON.stringify(_track));
+  //let form = new FormData();
+  // form.append('audioFile', JSON.stringify(_track));
   const settings = {
-    method: "POST",
-    body: form
+    method: 'POST',
+    body: req.body
   };
-  fetch("https://upload.clyp.it/upload", settings)
+  fetch('https://upload.clyp.it/upload', settings)
     .then((response) => {
       return response.json();
     })
@@ -98,7 +97,7 @@ router.post('/upload', (req, res, next) => {
       });
     })
     .catch((error) => {
-      console.log(error)
+      console.log(error);
       throw(error);
     });
 });

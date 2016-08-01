@@ -83,12 +83,8 @@ class ClypApi {
     });
   }
 
-  static deletePlaylist(playlist) {
-
-  }
-
   static saveTrack(track) {
-    debugger;
+    /*
     track = Object.assign({},
       { preview: track.preview,
         name: track.name,
@@ -99,16 +95,14 @@ class ClypApi {
         webkitRelativePath: track.webkitRelativePath
       });
     let tmp = JSON.stringify(track);
+    */
+    let form = new FormData();
+    form.append('audioFile', track);
+    let tmp = form.get('audioFile');
     debugger;
-//    let form = new FormData();
-//    form.append("audioFile", track);
     let settings = {
-      method: "POST",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      },
-      body: tmp
+      method: 'POST',
+      body: form
     };
 
 
