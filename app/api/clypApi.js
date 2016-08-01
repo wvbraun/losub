@@ -107,7 +107,7 @@ class ClypApi {
 
 
     return new Promise((resolve, reject) => {
-      fetch("/api/clyp/upload", settings)
+      fetch('/api/clyp/upload', settings)
         .then((response) => {
           return response.json();
         })
