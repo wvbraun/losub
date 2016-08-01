@@ -1,10 +1,10 @@
 "use strict";
 
 import { combineReducers } from "redux";
-import playlists from "./clypReducer";
+import tracks from "./clypReducer";
 
 const rootReducer = combineReducers({
-  playlists: playlists
+  tracks: tracks
 });
 
 export default rootReducer;

@@ -1,8 +1,12 @@
 "use strict";
 
-//import ClypApi from "../api/mockClypApi";
+// import ClypApi from "../api/mockClypApi";
 import ClypApi from "../api/clypApi";
 import types from "./actionTypes";
+
+export function loadTracksSuccess(tracks) {
+  return { type: types.LOAD_TRACKS_SUCCESS, tracks };
+}
 
 export function loadPlaylistsSuccess(playlists) {
   return { type: types.LOAD_PLAYLISTS_SUCCESS, playlists };
@@ -14,6 +18,18 @@ export function createPlaylistSuccess(playlist) {
 
 export function createTrackSuccess(track) {
   return { type: types.CREATE_TRACK_SUCCESS, track };
+}
+
+export function loadTracks() {
+  return (dispatch) => {
+    return ClypApi.getAllTracks()
+      .then((tracks) => {
+        dispatch(loadTracksSuccess(tracks));
+      })
+      .catch((error) => {
+        throw(error);
+      });
+  };
 }
 
 export function loadPlaylists() {

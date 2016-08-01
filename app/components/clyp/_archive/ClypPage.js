@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { browserHistory } from "react-router";
 import ClypList from "./ClypList";
-import * as clypActions  from "../../actions/clypActions";
+import * as clypActions  from "../../../actions/clypActions";
 
 class ClypPage extends React.Component {
   constructor(props, context) {

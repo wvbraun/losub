@@ -2,6 +2,7 @@
 
 import React, { PropTypes } from "react";
 import { ModalContainer, ModalDialog } from "react-modal-dialog";
+import Dropzone from "react-dropzone";
 
 class UploadModal extends React.Component {
   constructor(props, context) {
@@ -29,7 +30,18 @@ class UploadModal extends React.Component {
         {this.state.isShowingModal &&
           <ModalContainer onClose={this.handleClose}>
             <ModalDialog onClose={this.handleClose}>
-              <h1>modal content</h1>
+              <div className="upload-modal">
+                <div className="widget-wrapper">
+                  <div className="upload-zone">
+                    <Dropzone multiple={false} onDrop={this.props.onDrop}>
+                      <span>dropzone</span>
+                    </Dropzone>
+                    <div className="upload-text">
+                      <p>upload-text</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </ModalDialog>
           </ModalContainer>
         }
@@ -39,7 +51,8 @@ class UploadModal extends React.Component {
 }
 
 UploadModal.propTypes = {
-  classes: PropTypes.string
+  classes: PropTypes.string,
+  onDrop: PropTypes.func.isRequired
 };
 
 export default UploadModal;

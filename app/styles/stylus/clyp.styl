@@ -57,3 +57,207 @@
 
 .highlight-track:nth-child(1)
   background-color: #3DBEB3;
+
+.clyp-tabs-content
+  padding-top: 20px;
+
+@media screen and (min-width: 768px)
+  .side-bar
+    margin: 20px 0;
+  .tabs-wrapper .tab
+    min-width: 0;
+  .cards-wrapper
+    width: 100%;
+
+.clyp-tabs-wrapper
+  background-color: #FDFFFC;
+  position: relative;
+  box-shadow: 0 2px 2px rgba(9, 12, 35, 0.1);
+
+  & .tabs
+    display: -ms-flexbox;
+    display: flex;
+
+  & .tab
+    height: 54px;
+    line-height: 54px;
+    padding: 0 10px;
+    min-width: 33%;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #8C95A0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &.active
+      color: #3DBEB3;
+      border-bottom: 4px solid #3DBEB3;
+    &.inactive:hover:active
+      color: #3DBEB3;
+    &.inactive:hover
+      color: #5F6D7A;
+
+.flex-row
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 68.75rem;
+  width: 100%;
+  margin: 0 auto;
+
+.cards-wrapper
+  width: 100%;
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden;
+
+.clyp-list
+  width: 100%;
+  opacity: 0;
+  transition: left .5s ease-in-out, position 0.001s ease-in-out .5s, margin 0.001s ease-in-out .5s, opacity 0.001s ease-in-out .5s;
+  &.active
+    margin-top: 0;
+    position: relative;
+    display: block;
+    left: 0;
+    opacity: 1;
+    transition: left .5s ease-in-out, position 0.001s ease-in-out .5s, margin 0.001s ease-in-out, opacity 0.001s ease-in-out;
+  &.inactive
+    margin: 20px 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  &tab-1.active
+    left: 0;
+  &.tab-1.inactive + .tab-2.active
+    left: 0;
+  &.tab-1.inactive
+    left: -150%;
+  &.tab-1.active + .tab-2.inactive
+    left: 150%;
+  &.tab-1.inactive + .tab-2.inactive
+    left: -150%;
+  &.tab-3.inactive
+    left: 150%;
+
+
+.audio-card
+  width: 100%;
+  float: left;
+  background-color: #FDFFFC;
+  border: 1px solid #E4E5E5;
+  border-radius: 4px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  overflow-wrap: break-word;
+  position: relative;
+  &:hover
+    border-color: #D1D6DA;
+  & .transparent-overlay
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+
+& .bottom-border
+  margin-bottom: 8px;
+  border-bottom: 1px solid #E4E5E5;
+
+& .profile-pic
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+.card-header
+  height: 49px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+
+.card-user-profile
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+
+
+.card-player
+  height: 95px;
+  margin-top: 10px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+
+.play-button
+  background-size: cover;
+  &:hover
+    background-size: cover !important;
+
+.pause-button
+  background-size: cover;
+  &:hover
+    background-size: cover !important;
+
+.play-button
+.pause-button
+  margin-right: 10px;
+
+.play-button.small
+.pause-button.small
+  height: 63px;
+  width: 63px;
+  min-width: 63px;
+  min-height: 63px;
+
+.play-button.large
+.pause-button.large
+  height: 192px;
+  width: 192px;
+  min-width: 192px;
+  min-height: 192px;
+
+
+.record-button
+  background-size: cover;
+  .record-button:hover
+    background-size: cover !important;
+
+.stop-record-button
+  background-size: cover;
+  .stop-record-button:hover
+    background-size: cover !important;
+
+.soundwave-wrapper
+  width: calc(100% - 155px);
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 0;
+  bottom: 0;
+  left: 75px;
+  position: absolute;
+
+.soundwave
+  cursor: pointer;
+  display: block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;

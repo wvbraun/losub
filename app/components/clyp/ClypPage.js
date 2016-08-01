@@ -5,46 +5,33 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { browserHistory } from "react-router";
 import ClypHeader from "./ClypHeader";
+import ClypList from "./ClypList";
 import * as clypActions  from "../../actions/clypActions";
 
 class ClypPage extends React.Component {
   constructor(props, context) {
     super(props, context);
-    this.state = {
-      isShowingModal: false,
-      errors: {}
-    };
-
-    this.handleClick = this.handleClick.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-  }
-
-  handleClick() {
-    this.setState({ isShowingModal: true });
-  }
-
-  handleClose() {
-    this.setState({ isShowingModal: false });
   }
 
   render() {
-    const { playlists } = this.props;
+    const { tracks } = this.props;
     return (
       <div>
         <ClypHeader />
+        <ClypList tracks={tracks} />
       </div>
     );
   }
 }
 
 ClypPage.propTypes = {
-  playlists: PropTypes.array.isRequired,
+  tracks: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
   return {
-    playlists: state.playlists
+    tracks: state.tracks
   };
 }
 

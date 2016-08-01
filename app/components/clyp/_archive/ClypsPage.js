@@ -5,8 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { browserHistory } from "react-router";
 import ClypsList from "./ClypsList";
-import ClypHeader from "./ClypHeader";
-import * as clypActions  from "../../actions/clypActions";
+import * as clypActions  from "../../../actions/clypActions";
 
 
 /*
@@ -39,7 +38,6 @@ class ClypsPage extends React.Component {
     const { playlists } = this.props;
     return (
       <div>
-        <ClypHeader />
         <ClypsList playlists={playlists} />
       </div>
     );

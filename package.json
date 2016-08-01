@@ -14,7 +14,10 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "cors": "^2.7.1",
+    "es6-promise": "^3.2.1",
     "express": "^4.14.0",
+    "form-data": "^1.0.0-rc4",
+    "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.1.0",
     "keymirror": "^0.1.1",
     "lodash": "^4.14.0",
@@ -24,6 +27,8 @@
     "react": "^15.2.1",
     "react-classnames": "^0.1.2",
     "react-dom": "^15.2.1",
+    "react-dropzone": "^3.5.3",
+    "react-iframe": "0.0.4",
     "react-modal-dialog": "^3.0.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.6.0",
@@ -31,6 +36,8 @@
     "react-sidebar": "^2.2.1",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
+    "superagent": "^2.1.0",
+    "superagent-promise-plugin": "^3.2.0",
     "toastr": "^2.1.2"
   },
   "devDependencies": {
@@ -58,6 +65,7 @@
     "file-loader": "^0.9.0",
     "https-proxy-agent": "^1.0.0",
     "jsdom": "^9.4.1",
+    "json-loader": "^0.5.4",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "minimatch": "^3.0.2",

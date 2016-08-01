@@ -1,6 +1,11 @@
 "use strict";
 
 import fetch from "isomorphic-fetch";
+import request from "superagent";
+
+const paths = {
+  baseUrl: "/api/clyp"
+};
 
 const configHandler = (method, body = null) => {
   let config = {
@@ -20,7 +25,7 @@ const configHandler = (method, body = null) => {
 class ClypApi {
   static getAllPlaylists() {
       return new Promise((resolve, reject) => {
-        fetch("/api/clyps/playlists")
+        fetch("/api/clyp/playlists")
           .then((response) => {
               return response.json();
           })
@@ -31,6 +36,21 @@ class ClypApi {
             throw(error);
           });
       });
+  }
+
+  static getAllTracks() {
+    return new Promise((resolve, reject) => {
+      fetch('/api/clyp/tracks')
+        .then((response) => {
+          return response.json();
+        })
+        .then((tracks) => {
+          resolve(Object.assign([], tracks));
+        })
+        .catch((error) => {
+          throw(error);
+        });
+    });
   }
 
   static savePlaylist(playlist) {
@@ -45,7 +65,7 @@ class ClypApi {
     };
 
     return new Promise((resolve, reject) => {
-      fetch("/api/clyps/playlist", config)
+      fetch("/api/clyp/playlist", config)
         .then((response) => {
           return response.json();
         })
@@ -68,35 +88,48 @@ class ClypApi {
   }
 
   static saveTrack(track) {
-      let _track = Object.assign({}, track);
-      let config = {
-        method: "POST",
-        body: JSON.stringify(_track),
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        }
-      };
-
-      return new Promise((resolve, reject) => {
-        fetch("/api/clyps/track", config)
-          .then((response) => {
-            return response.json();
-          })
-          .then((savedTrack) => {
-            const minLength = 1;
-            if (savedTrack.Title.length < minLength) {
-              reject(`Name must be at least ${minLength} characters.`);
-            } else {
-              resolve(Object.assign({}, savedTrack));
-            }
-          })
-          .catch((error) => {
-            throw(error);
-          });
+    debugger;
+    track = Object.assign({},
+      { preview: track.preview,
+        name: track.name,
+        size: track.size,
+        lastModified: track.lastModified,
+        lastModifiedDate: track.lastModifiedDate,
+        type: track.type,
+        webkitRelativePath: track.webkitRelativePath
       });
-    }
+    let tmp = JSON.stringify(track);
+    debugger;
+//    let form = new FormData();
+//    form.append("audioFile", track);
+    let settings = {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: tmp
+    };
 
+
+    return new Promise((resolve, reject) => {
+      fetch("/api/clyp/upload", settings)
+        .then((response) => {
+          return response.json();
+        })
+        .then((savedTrack) => {
+          const minLength = 1;
+          if (savedTrack.Title.length < minLength) {
+            reject(`Name must be at least ${minLength} characters.`);
+          } else {
+            resolve(Object.assign({}, savedTrack));
+          }
+        })
+        .catch((error) => {
+          throw(error);
+        });
+    });
+  }
 }
 
 export default ClypApi;
