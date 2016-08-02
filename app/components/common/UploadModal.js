@@ -4,6 +4,12 @@ import React, { PropTypes } from "react";
 import { ModalContainer, ModalDialog } from "react-modal-dialog";
 import Dropzone from "react-dropzone";
 
+const tabs = [
+  {
+    name: 'Upload'
+  }
+];
+
 class UploadModal extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -32,6 +38,11 @@ class UploadModal extends React.Component {
             <ModalDialog onClose={this.closeModal}>
               <div className="upload-modal">
                 <div className="widget-wrapper">
+                  <ul className="source-tabs row">
+                    {tabs.map((tab) =>
+                      <li className="tab small-12 columns">{tab.name}</li>
+                    )}
+                  </ul>
                   <div className="upload-zone">
                     <Dropzone multiple={false} onDrop={this.props.onDrop}>
                       <span>dropzone</span>
