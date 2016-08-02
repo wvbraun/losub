@@ -92,10 +92,10 @@ router.post('/upload', upload.single('audioFile'), (req, res, next) => {
 
   fetch('https://upload.clyp.it/upload', settings)
     .then((response) => {
+      removeFile(req.file.path);
       return response.json();
     })
     .then((track) => {
-      removeFile(req.file.path);
       const clyp = new Clyp(track);
       clyp.save((err) => {
         if (err) {

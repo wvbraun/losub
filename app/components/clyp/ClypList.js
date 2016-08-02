@@ -5,7 +5,7 @@ import ClypListRow from "./ClypListRow";
 
 const ClypList = ({ tracks }) => {
   return (
-    <div className="container">
+    <div>
       {tracks.map((track, i) =>
         <ClypListRow key={i} track={track} />
       )}
