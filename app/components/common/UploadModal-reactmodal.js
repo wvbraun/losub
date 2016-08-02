@@ -2,6 +2,7 @@
 
 import React, { PropTypes } from "react";
 import { ModalContainer, ModalDialog } from "react-modal-dialog";
+import Modal from "react-modal";
 import Dropzone from "react-dropzone";
 
 class UploadModal extends React.Component {
@@ -13,6 +14,7 @@ class UploadModal extends React.Component {
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
   }
 
   openModal() {
@@ -23,28 +25,33 @@ class UploadModal extends React.Component {
     this.setState({ modalIsOpen: false });
   }
 
+  afterOpenModal() {
+    this.refs.subtitle.style.color = '#f00';
+  }
+
   render() {
     return (
       <div>
         <button className={this.props.classes} type="submit" onClick={this.openModal}>Upload</button>
-        {this.state.modalIsOpen &&
-          <ModalContainer onClose={this.closeModal}>
-            <ModalDialog onClose={this.closeModal}>
-              <div className="upload-modal">
-                <div className="widget-wrapper">
-                  <div className="upload-zone">
-                    <Dropzone multiple={false} onDrop={this.props.onDrop}>
-                      <span>dropzone</span>
-                    </Dropzone>
-                    <div className="upload-text">
-                      <p>upload-text</p>
-                    </div>
-                  </div>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onClose={this.closeModal} >
+          <h2 ref="subtitle">subtitle</h2>
+          <button onClick={this.closeModal}>Close</button>
+          <div className="upload-modal">
+            <div className="widget-wrapper">
+              <div className="upload-zone">
+                <Dropzone multiple={false} onDrop={this.props.onDrop}>
+                  <span>dropzone</span>
+                </Dropzone>
+                <div className="upload-text">
+                  <p>upload-text</p>
                 </div>
               </div>
-            </ModalDialog>
-          </ModalContainer>
-        }
+            </div>
+          </div>
+        </Modal>
       </div>
     );
   }

@@ -21,13 +21,19 @@ import Iframe from "react-iframe";
         </div>
         */
 
+const styles = {
+  width: '100%',
+  height: '160px',
+  borderWidth: '0px'
+};
+
 const ClypListRow = ({ track }) => {
   return (
-    <div className="row">
-      <div className="col-sm-12">
-        <Iframe url={`${track.Url}/widget`} width="100%" height="160px" frameborder="0"/>
-      </div>
-    </div>
+    <tr>
+      <td>
+        <iframe src={`${track.Url}/widget`} style={styles}></iframe>
+      </td>
+    </tr>
   );
 };
 

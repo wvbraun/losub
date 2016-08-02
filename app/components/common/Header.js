@@ -6,13 +6,11 @@ import { Link, IndexLink } from "react-router";
 const Header = () => {
   return (
     <nav className="navbar navbar-default">
-      <div className="container-fluid">
-        <ul className="nav navbar-nav">
-          <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
-          <li><Link to="/about" activeClassName="active">About</Link></li>
-          <li><Link to="/clyp" activeClassName="active">Clyp</Link></li>
-        </ul>
-      </div>
+      <ul className="nav navbar-nav">
+        <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
+        <li><Link to="/about" activeClassName="active">About</Link></li>
+        <li><Link to="/clyp" activeClassName="active">Clyp</Link></li>
+      </ul>
     </nav>
   );
 };

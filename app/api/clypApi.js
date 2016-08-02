@@ -103,7 +103,6 @@ class ClypApi {
       body: form
     };
 
-
     return new Promise((resolve, reject) => {
       fetch('/api/clyp/upload', settings)
         .then((response) => {
