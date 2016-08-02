@@ -12,8 +12,6 @@ import webpackConfig from "../webpack.config.dev";
 import wpDevMiddleware from "webpack-dev-middleware";
 import wpHotMiddleware from "webpack-hot-middleware";
 
-import busboy from "connect-busboy";
-
 
 // import logger from "morgan";
 
@@ -44,7 +42,6 @@ app.use(wpHotMiddleware(compiler));
 
 app.use(cors());
 app.use(bodyParser.json());
-//app.use(busboy());
 app.use('/public', express.static(__dirname + '/public'));
 routes(app);
 

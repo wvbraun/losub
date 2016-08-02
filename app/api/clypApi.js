@@ -1,7 +1,6 @@
 "use strict";
 
 import fetch from "isomorphic-fetch";
-import request from "superagent";
 
 const paths = {
   baseUrl: "/api/clyp"
@@ -99,7 +98,6 @@ class ClypApi {
     let form = new FormData();
     form.append('audioFile', track);
     let tmp = form.get('audioFile');
-    debugger;
     let settings = {
       method: 'POST',
       body: form

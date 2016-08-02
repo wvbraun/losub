@@ -23,7 +23,11 @@ import Iframe from "react-iframe";
 
 const ClypListRow = ({ track }) => {
   return (
-    <Iframe url={`${track.Url}/widget`} width="100%" height="160px" frameborder="0"/>
+    <div className="row">
+      <div className="col-sm-12">
+        <Iframe url={`${track.Url}/widget`} width="100%" height="160px" frameborder="0"/>
+      </div>
+    </div>
   );
 };
 
