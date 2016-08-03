@@ -4,6 +4,11 @@
   margin: 0;
   margin-bottom: -80px;
 
+
+body
+  overflow-y: scroll;
+
+
 header
   height: 54px;
   width: 100%;
@@ -482,9 +487,10 @@ html.remodal-is-locked
   opacity: 0;
   z-index: 10001;
 
+$fa-var-icon-upload = "\f01b";
 .upload-icon
-  width: 59px;
-  height: 58px;
+  fa(icon-upload);
+  font-size: 5em;
   background-repeat: no-repeat;
   background-position: center;
 
