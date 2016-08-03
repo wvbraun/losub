@@ -86,6 +86,7 @@
     "omni-fetch": "^0.2.0",
     "open": "0.0.5",
     "react-addons-test-utils": "^15.2.1",
+    "react-portal-wrap": "^1.1.1",
     "redux-immutable-state-invariant": "^1.2.3",
     "redux-mock-store": "^1.1.2",
     "rimraf": "^2.5.3",
