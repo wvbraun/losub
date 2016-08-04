@@ -1,13 +1,51 @@
+
+vendor(prop, args)
+  -webkit-{prop} args
+  -moz-{prop} args
+  {prop} args
+
+box-sizing()
+  vendor('box-sizing', arguments)
+
 .site-container
   min-height: 100%;
   height: auto !important;
   margin: 0;
   margin-bottom: -80px;
 
+html
+  font-size: 100%;
+  box-sizing: border-box;
+
+*
+*:before
+*:after
+  box-sizing inherit
 
 body
+  padding: 0;
+  margin: 0;
+  font-family: "BrandonGrotesque", sans-serif;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #5F6D7A;
+  background: #FDFFFC;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-y: scroll;
 
+html
+body
+  height: 100%;
+  margin: 0;
+
+.sticky-footer-wrapper
+  min-height: 100%;
+  margin: 0 auto -140px;
+
+footer
+.sticky-footer-push
+  height: 140px;
 
 header
   height: 54px;
@@ -108,15 +146,6 @@ img
   display: inline-block;
   vertical-align: middle;
 
-vendor(prop, args)
-  -webkit-{prop} args
-  -moz-{prop} args
-  {prop} args
-
-box-sizing()
-  vendor('box-sizing', arguments)
-*
-  box-sizing inherit;
 
 
 @media screen and (min-width: 48em)
