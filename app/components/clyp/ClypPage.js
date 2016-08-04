@@ -8,6 +8,9 @@ import ClypHeader from "./ClypHeader";
 import ClypList from "./ClypList";
 import * as clypActions  from "../../actions/clypActions";
 
+
+const tabs = ["Tracks", "Playlists", "Recent"];
+
 class ClypPage extends React.Component {
   constructor(props, context) {
     super(props, context);

@@ -19,6 +19,8 @@ const tabs = [
   }
 ];
 
+const terms = "By uploading you agree to Clyp's Terms";
+
 class UploadModal extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -27,10 +29,16 @@ class UploadModal extends React.Component {
     };
 
     this.toggleModal = this.toggleModal.bind(this);
+    this.onDrop = this.onDrop.bind(this);
   }
 
   toggleModal() {
     this.setState({ isModalOpen: !this.state.isModalOpen });
+  }
+
+  onDrop(e) {
+    this.props.onDrop(e);
+    this.toggleModal();
   }
 
   render() {
@@ -47,14 +55,17 @@ class UploadModal extends React.Component {
                 </ul>
                 <div className="default-tabs-content upload-tabs">
                   <div className="upload-tab tab active">
-                    <Dropzone className="dropzone" multiple={false} onDrop={this.props.onDrop}>
+                    <Dropzone className="dropzone" multiple={false} onDrop={this.onDrop}>
                       <div className="upload-zone">
                         <div className="upload-icon"></div>
                         <div className="upload-text">
-                          <p align="center">Drop in an audio file or click to upload</p>
+                          Drop in an audio file or click to upload
                         </div>
                       </div>
                     </Dropzone>
+                    <div className="row terms-clause-wrapper">
+                      <div className="terms-clause">{terms}</div>
+                    </div>
                   </div>
                 </div>
               </div>

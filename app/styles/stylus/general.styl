@@ -1,3 +1,5 @@
+TEXT_COLOR = #3DBEB3;
+
 .site-container
   min-height: 100%;
   height: auto !important;
@@ -6,7 +8,8 @@
 
 
 body
-  overflow-y: scroll;
+  overflow-x hidden
+  overflow-y scroll
 
 
 header
@@ -158,10 +161,20 @@ box-sizing()
 .small-12
   width: 100%;
 
+
+@media screen and (min-width: 48em)
+  .hero
+    padding 32px 20px
+  .headline
+    font-size 40px
+  .sub-headline
+    font-size 24px
+
+/*
 .row
   // max-width: 68.75rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: -15px;
+  margin-right: -15px;
   &::before
   &::after
     content: ' ';
@@ -216,11 +229,7 @@ box-sizing()
 
 .row
   width: 100%;
-
-.remodal
-  border-radius: 4px;
-  color: #5F6D7A;
-  background: #FDFFFC;
+*/
 
 .modal-bottom-element
   margin-bottom: 0;
@@ -238,221 +247,11 @@ box-sizing()
   float: left;
   font-size: 16px;
 
-.remodal-error-inline
-  top: 56px;
-
 .upload-modal
   max-width: none;
   overflow: hidden;
   width: 100%;
   background-color: white;
-
-.remodal.upload-modal-wrapper
-  max-width: none;
-  padding: 15px 10px;
-
-
-/* Close button */
-.remodal-close
-  -webkit-transition: color 0.2s;
-  background: transparent;
-  border: 0;
-  color: #8C95A0;
-  cursor: pointer;
-  display: block;
-  height: 35px;
-  left: 0;
-  margin: 0;
-  outline: 0;
-  overflow: visible;
-  padding: 0;
-  position: absolute;
-  text-decoration: none;
-  top: 0;
-  transition: color 0.2s;
-  width: 35px;
-
-  &:hover
-  &:focus
-    color: #5F6D7A;
-
-  &:before
-    content: "\00d7";
-    display: block;
-    font-family: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif !important;
-    font-size: 28px;
-    left: 0;
-    line-height: 35px;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 35px;
-
-/* ==========================================================================
-   Remodal's necessary styles
-   ========================================================================== */
-/* Hide scroll bar */
-html.remodal-is-locked
-  -ms-touch-action: none;
-  overflow: hidden;
-  touch-action: none;
-
-/* Anti FOUC */
-.remodal
-[data-remodal-id]
-  display: none;
-
-/* Necessary styles of the overlay */
-.remodal-overlay
-  bottom: -5000px;
-  display: none;
-  left: -5000px;
-  position: fixed;
-  right: -5000px;
-  top: -5000px;
-  z-index: 9999;
-
-/* Necessary styles of the wrapper */
-.remodal-wrapper
-  -webkit-overflow-scrolling: touch;
-  bottom: 0;
-  display: none;
-  left: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: fixed;
-  right: 0;
-  text-align: center;
-  top: 0;
-  z-index: 10000;
-
-  &:after
-    content: "";
-    display: inline-block;
-    height: 100%;
-    margin-left: -0.05em;
-
-/* Fix iPad, iPhone glitches */
-.remodal-overlay
-.remodal-wrapper
-  backface-visibility: hidden;
-
-/* Necessary styles of the modal dialog */
-.remodal
-  -moz-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  outline: none;
-  position: relative;
-  text-size-adjust: 100%;
-
-.remodal-is-initialized
-  /* Disable Anti-FOUC */
-  display: inline-block;
-
-/* ==========================================================================
-   Remodal's default mobile first theme
-   ========================================================================== */
-.remodal-bg.remodal-is-opening
-.remodal-bg.remodal-is-opened
-  -webkit-filter: blur(3px);
-  filter: blur(3px);
-
-/* Default theme styles of the overlay */
-.remodal-overlay
-  background: rgba(7, 24, 39, 0.8);
-
-.remodal-overlay.remodal-is-opening
-.remodal-overlay.remodal-is-closing
-  -webkit-animation-duration: 0.3s;
-  -webkit-animation-fill-mode: forwards;
-  animation-duration: 0.3s;
-  animation-fill-mode: forwards;
-  .remodal-overlay.remodal-is-opening.animation-disabled
-  .remodal-overlay.remodal-is-closing.animation-disabled
-    animation: none !important;
-    animation-duration: 0s !important;
-
-.remodal-overlay.remodal-is-opening
-  animation-name: remodal-overlay-opening-keyframes;
-
-.remodal-overlay.remodal-is-closing
-  animation-name: remodal-overlay-closing-keyframes;
-
-/* Default theme styles of the wrapper */
-.remodal-wrapper
-  padding: 10px 10px 0;
-
-/* Default theme styles of the modal dialog */
-.remodal
-  -webkit-box-sizing: border-box;
-  -webkit-transform: translate3d(0, 0, 0);
-  background: #FDFFFC;
-  box-sizing: border-box;
-  color: #5F6D7A;
-  margin-bottom: 10px;
-  padding: 30px 20px 20px 20px;
-  transform: translate3d(0, 0, 0);
-  width: 100%;
-
-.remodal.remodal-is-opening
-.remodal.remodal-is-closing
-  -webkit-animation-duration: 0.3s;
-  -webkit-animation-fill-mode: forwards;
-  animation-duration: 0.3s;
-  animation-fill-mode: forwards;
-
-.remodal.remodal-is-opening
-  animation-name: remodal-opening-keyframes;
-
-.remodal.remodal-is-closing
-  animation-name: remodal-closing-keyframes;
-
-/* Vertical align of the modal dialog */
-.remodal
-.remodal-wrapper:after
-  vertical-align: middle;
-
-/* Dialog buttons */
-.remodal-confirm
-.remodal-cancel
-  -webkit-transition: background 0.2s;
-  border: 0;
-  cursor: pointer;
-  display: inline-block;
-  font: inherit;
-  margin: 0;
-  min-width: 110px;
-  outline: 0;
-  overflow: visible;
-  padding: 12px 0;
-  text-align: center;
-  text-decoration: none;
-  transition: background 0.2s;
-  vertical-align: middle;
-
-.remodal-confirm
-  background: #81c784;
-  color: #fff;
-
-  &:hover
-  &:focus
-    background: #66bb6a;
-
-.remodal-cancel
-  background: #e57373;
-  color: #fff;
-
-  &:hover
-  &:focus
-    background: #ef5350;
-
-/* Remove inner padding and border in Firefox 4+ for the button tag. */
-.remodal-confirm::-moz-focus-inner
-.remodal-cancel::-moz-focus-inner
-.remodal-close::-moz-focus-inner
-  border: 0;
-  padding: 0;
 
 .file-upload-box
   width: 100%;
@@ -495,9 +294,10 @@ $fa-var-icon-upload = "\f01b";
   background-position: center;
 
 .upload-text
-  padding-top: 10px;
-  width: 142px;
-  color: #8C95A0;
+  padding-top 10px
+  width 142px;
+  color #8C95A0
+  text-align center
 
 .cancel-file-upload-button-container
   position: absolute;
@@ -540,11 +340,6 @@ $fa-var-icon-upload = "\f01b";
         padding-left: 0px;
         padding-right: 0px;
 
-.row
-  margin-right: 0px;
-  margin-left: 0px;
-
-
 .source-tabs
   display: -ms-flexbox;
   display: flex;
@@ -569,3 +364,13 @@ $fa-var-icon-upload = "\f01b";
       color: #3DBEB3;
     &:not(.is-active):hover
       color: #5F6D7A;
+
+
+.terms-clause
+  font-size 13px
+  text-align center
+  width 100%
+  position absolute
+  bottom 2px
+  & a
+    color TEXT_COLOR

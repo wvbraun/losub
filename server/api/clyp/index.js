@@ -10,6 +10,7 @@ import HttpsProxyAgent from "https-proxy-agent";
 import FormData from "form-data";
 import multer from "multer";
 import fs from "fs";
+import mkdirp from "mkdirp";
 
 // this could also be in a ../routes dir, and perhaps it should be..
 
@@ -31,9 +32,11 @@ const errorHandler = (res, err = null, status = 500) => {
   return res.status(status).json(err);
 };
 
+const uploadPath = "./server/tmp/uploads";
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, './server/tmp/uploads');
+    cb(null, uploadPath);
   },
   filename: (req, file, cb) => {
     const filename = file.originalname;
@@ -58,6 +61,9 @@ const removeFile = (file) => {
     }
   });
 };
+
+
+mkdirp.sync(uploadPath);
 
 router.get('/tracks', (req, res, next) => {
   Clyp.find({}, (err, clyps) => {

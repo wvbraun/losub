@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import UploadModal from "../common/UploadModal";
+import toastr from "toastr";
 import * as clypActions  from "../../actions/clypActions";
 
 class ClypHeader extends React.Component {
@@ -35,7 +36,13 @@ class ClypHeader extends React.Component {
   // event = array of Files, we have disabled multiple files, so
   // only an array of one File object.
   saveTrack(event) {
-    this.props.actions.saveTrack(event[0]);
+    this.props.actions.saveTrack(event[0])
+      .then(() => {
+        toastr.success("File uploaded successfully!");
+      })
+      .catch((err) => {
+        toastr.error(err);
+      });
   }
 
   render() {

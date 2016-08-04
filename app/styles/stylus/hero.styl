@@ -1,0 +1,26 @@
+COLOR = #FDFFFC;
+BG_COLOR = #5F6D7A;
+
+.hero-wrapper
+  position relative
+
+.hero
+  color COLOR
+  background-color BG_COLOR
+  width 100%
+  display -ms-flexbox
+  display flex
+  -ms-flex-direction column
+  flex-direction column
+  -ms-flex-align center
+  align-items center
+  -ms-flex-pack center
+  justify-content center
+  text-align center
+  padding 20px 10px 
+  & .alert-box
+    margin-bottom 15px
+    font-size 24px
+    display none
+    &.content-visible
+      display block
