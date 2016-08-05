@@ -6,10 +6,28 @@ TEXT_COLOR = #3DBEB3;
   margin: 0;
   margin-bottom: -80px;
 
+html
+  font-size 100%
+  box-sizing border-box
 
 body
   overflow-x hidden
   overflow-y scroll
+
+BODY_COLOR = #5F6D7A;
+BG_COLOR = #FDFFFC;
+
+body
+  padding 0
+  margin 0
+  font-family "BrandonGrotesque", sans-serif
+  font-weight normal
+  line-height 1.5
+  color BODY_COLOR
+  background BODY_COLOR
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
 
 
 header
@@ -111,6 +129,7 @@ img
   display: inline-block;
   vertical-align: middle;
 
+/*
 vendor(prop, args)
   -webkit-{prop} args
   -moz-{prop} args
@@ -118,6 +137,8 @@ vendor(prop, args)
 
 box-sizing()
   vendor('box-sizing', arguments)
+*/
+
 *
   box-sizing inherit;
 
