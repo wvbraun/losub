@@ -1,12 +1,15 @@
 # SUBLO
 
+experimental website. currently cloning clyp. 
+
 ---
 # todo
 
 it would be cool to do this stuff, some of it will be done tho.
+- music help page (structure, hard to find stuff that shouldnt be kept hidden)
 - boomin in browser (mb drums)
 - random page (press button, smt random happens)
-- art page (nostalgia)
+- art page (nostalgia ultra)
 
 
 ---
@@ -18,4 +21,3 @@ needed to be installed
  - mkdirp, lodash.memoize, caw
  
 
-* for the sidebar i was looking at react-sidebar and react-buger-menu
