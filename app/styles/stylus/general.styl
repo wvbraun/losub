@@ -1,4 +1,6 @@
 TEXT_COLOR = #3DBEB3;
+BODY_COLOR = #5F6D7A;
+BG_COLOR = #FDFFFC;
 
 .site-container
   min-height: 100%;
@@ -9,13 +11,15 @@ TEXT_COLOR = #3DBEB3;
 html
   font-size 100%
   box-sizing border-box
+  overflow-y scroll
 
 body
   overflow-x hidden
-  overflow-y scroll
 
-BODY_COLOR = #5F6D7A;
-BG_COLOR = #FDFFFC;
+html
+body
+  height 100%
+  margin 0
 
 body
   padding 0
@@ -109,26 +113,6 @@ header
   margin-left: auto;
 
 
-/**
-   * Remove border when inside `a` element in IE 8/9/10.
-   */
-
-img
-  border: 0;
-
-/**
-   * Correct overflow not hidden in IE 9/10/11.
-   */
-svg:not(:root)
-  overflow: hidden;
-
-img
-  max-width: 100%;
-  height: auto;
-  -ms-interpolation-mode: bicubic;
-  display: inline-block;
-  vertical-align: middle;
-
 /*
 vendor(prop, args)
   -webkit-{prop} args
@@ -140,7 +124,9 @@ box-sizing()
 */
 
 *
-  box-sizing inherit;
+*:before
+*:after
+  box-sizing inherit
 
 
 @media screen and (min-width: 48em)
