@@ -2,7 +2,8 @@
 
 import React, { PropTypes } from "react";
 import { Link } from "react-router";
-import UploadModal from "../common/UploadModal";
+import UploadModal from "../common/UploadModal-react-remodal";
+import * as clypActions  from "../../actions/clypActions";
 
 const ClypHeader = ({ track, onDrop }) => {
   return (

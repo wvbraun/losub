@@ -1,7 +1,7 @@
 "use strict";
 
 import React, { PropTypes } from "react";
-// import { ModalContainer, ModalDialog } from "react-modal-dialog";
+import { ModalContainer, ModalDialog } from "react-modal-dialog";
 import createRemodal from 'react-remodal';
 import 'react-remodal/styles/main.css';
 import Dropzone from "react-dropzone";

@@ -3,9 +3,6 @@
 import React, { PropTypes } from "react";
 import ClypListRow from "./ClypListRow";
 
-const tabs = ["Tracks", "Playlists", "Recent"];
-
-
 const ClypList = ({ tracks }) => {
   return (
     <div className="row">

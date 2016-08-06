@@ -1,5 +1,7 @@
 "use strict";
 
+// i hate using jquery, need it for toastr atm.
+import * as $ from "jquery";
 import React, { PropTypes } from "react";
 import Header from "./common/Header";
 import Sidebar from "./common/Sidebar";
