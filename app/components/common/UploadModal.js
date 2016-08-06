@@ -1,17 +1,17 @@
 "use strict";
 
 import React, { PropTypes } from "react";
+// import { ModalContainer, ModalDialog } from "react-modal-dialog";
 import createRemodal from 'react-remodal';
 import 'react-remodal/styles/main.css';
 import Dropzone from "react-dropzone";
-import FontAwesome from "react-fontawesome";
-
 
 const Remodal = createRemodal({
   classes: {
     'dialog': 'react-remodal__dialog upload-modal-wrapper'
   }
 });
+//const Remodal = createRemodal();
 
 const tabs = [
   {
@@ -46,30 +46,30 @@ class UploadModal extends React.Component {
       <div>
         <button className={this.props.classes} type="submit" onClick={this.toggleModal}>Upload</button>
         <Remodal isOpen={this.state.isModalOpen} onClose={this.toggleModal}>
-            <div className="upload-modal">
-              <div className="widget-wrapper">
-                <ul className="source-tabs">
-                  {tabs.map((tab, i) =>
-                    <li key={i} className="tab small-12 columns is-active">{tab.name}</li>
-                  )}
-                </ul>
-                <div className="default-tabs-content upload-tabs">
-                  <div className="upload-tab tab active">
-                    <Dropzone className="dropzone" multiple={false} onDrop={this.onDrop}>
-                      <div className="upload-zone">
-                        <div className="upload-icon"></div>
-                        <div className="upload-text">
-                          Drop in an audio file or click to upload
-                        </div>
+          <div className="upload-modal">
+            <div className="widget-wrapper">
+              <ul className="source-tabs">
+                {tabs.map((tab, i) =>
+                  <li key={i} className="tab small-12 columns is-active">{tab.name}</li>
+                )}
+              </ul>
+              <div className="default-tabs-content upload-tabs">
+                <div className="upload-tab tab active">
+                  <Dropzone className="dropzone" multiple={false} onDrop={this.onDrop}>
+                    <div className="upload-zone">
+                      <div className="upload-icon"></div>
+                      <div className="upload-text">
+                        Drop in an audio file or click to upload
                       </div>
-                    </Dropzone>
-                    <div className="row terms-clause-wrapper">
-                      <div className="terms-clause">{terms}</div>
                     </div>
+                  </Dropzone>
+                  <div className="row terms-clause-wrapper">
+                    <div className="terms-clause">{terms}</div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
         </Remodal>
       </div>
     );

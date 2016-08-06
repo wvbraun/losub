@@ -7,6 +7,11 @@ TABS_INACTIVE_COLOR = #5F6D7A;
   background-color BG_COLOR
   position relative
   box-shadow 0 2px 2px rgba(9, 12, 35, 0.1)
+  & .react-tab
+    width 100%
+    margin 20px 0
+    position relative
+    overflow hidden
   & .header
     display -ms-flexbox
     display flex
@@ -47,6 +52,11 @@ TABS_INACTIVE_COLOR = #5F6D7A;
     & .header
       padding-left 15px
       padding-right 15px
+
+@media only screen and (min-width: 1024px)
+  .react-tabs
+    & .react-tab
+      margin 20px 20px 20px 0
 
 
 /*

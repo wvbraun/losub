@@ -92,7 +92,6 @@ router.post('/upload', upload.single('audioFile'), (req, res, next) => {
   */
   // agent: agent
   const settings = {
-    agent: agent,
     method: 'POST',
     body: form
   };

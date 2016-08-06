@@ -29,6 +29,7 @@
     "node-fetch": "^1.5.3",
     "radium": "^0.18.1",
     "react": "^15.2.1",
+    "react-bootstrap-modal": "^2.1.0",
     "react-classnames": "^0.1.2",
     "react-dom": "^15.2.1",
     "react-dropzone": "^3.5.3",
