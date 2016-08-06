@@ -41,6 +41,8 @@
     "react-router": "^2.6.0",
     "react-router-redux": "^4.0.5",
     "react-sidebar": "^2.2.1",
+    "react-tab-panel": "^2.2.2",
+    "react-tab-view": "^1.0.4",
     "react-tabs": "^0.7.0",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",

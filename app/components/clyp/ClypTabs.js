@@ -3,9 +3,12 @@
 import React, { PropTypes } from "react";
 import ClypList from "./ClypList";
 import ClypHero from "./ClypHero";
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+//import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import {Tabs, Tab } from "react-tab-view";
+//import TabPanel from 'react-tab-panel';
+//import 'react-tab-panel/index.css';
 
-Tabs.setUseDefaultStyles(false);
+//Tabs.setUseDefaultStyles(false);
 
 /*
       <div className="row">
@@ -39,27 +42,13 @@ Tabs.setUseDefaultStyles(false);
         </div>
       </div>
     </div>
-*/
 
-const ClypTabs = ({ clyps }) => {
-  return (
-    <div className="container-fluid">
-      <div className="row">
-        <ClypHero />
-        <Tabs selectedIndex={0}>
-          <div className="tabs-wrapper">
-            <div className="row tabs">
-              <div className="col-sm-12">
-                <div className="tabs">
-                  <TabList>
-                    <div className="tab"><Tab>Clyps</Tab></div>
-                    <div className="tab"><Tab>Playlists</Tab></div>
-                    <div className="tab"><Tab>Recent</Tab></div>
-                  </TabList>
-                </div>
-              </div>
-            </div>
-          </div>
+<Tabs selectedIndex={0}>
+          <TabList>
+            <Tab>Clyps</Tab>
+            <Tab>Playlists</Tab>
+            <Tab>Recent</Tab>
+          </TabList>
           <TabPanel>
             <ClypList tracks={clyps} />
           </TabPanel>
@@ -69,6 +58,20 @@ const ClypTabs = ({ clyps }) => {
           <TabPanel>
             <h2>Recent</h2>
           </TabPanel>
+        </Tabs>
+*/
+
+const headers = ['Clyps', 'Playlists', 'Recent'];
+
+const ClypTabs = ({ clyps }) => {
+  return (
+    <div className="container-fluid">
+      <div className="row">
+        <ClypHero />
+        <Tabs headers={headers}>
+          <Tab><ClypList tracks={clyps} /></Tab>
+          <Tab><p>Playlists</p></Tab>
+          <Tab><p>Recent</p></Tab>
         </Tabs>
       </div>
     </div>
