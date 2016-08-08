@@ -5,10 +5,10 @@ import React from "react";
 
 const ClypHero = () => {
   return (
-      <div className="hero-wrapper">
-        <div className="hero">
-        </div>
+    <div className="clyp-hero-wrapper row">
+      <div className="clyp-hero">
       </div>
+    </div>
   );
 };
 

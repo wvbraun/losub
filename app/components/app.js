@@ -8,12 +8,12 @@ import Sidebar from "./common/Sidebar";
 
 // import { connect } from "react-redux";
 
+        //<Header />
 
 class App extends React.Component {
   render() {
     return (
       <div className="site-container">
-        <Header />
         {this.props.children}
       </div>
     );

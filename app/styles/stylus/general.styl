@@ -1,20 +1,13 @@
-TEXT_COLOR = #3DBEB3;
-BODY_COLOR = #5F6D7A;
-BG_COLOR = #FDFFFC;
+@import './config'
 
 .site-container
-  min-height: 100%;
-  height: auto !important;
-  margin: 0;
-  margin-bottom: -80px;
+  min-height 100%
+  margin 0 auto -80px
 
 html
   font-size 100%
   box-sizing border-box
-  overflow-y scroll
 
-body
-  overflow-x hidden
 
 html
 body
@@ -24,360 +17,42 @@ body
 body
   padding 0
   margin 0
-  font-family "BrandonGrotesque", sans-serif
+  font-family "BrandonGrotesque", sans-serif !important
   font-weight normal
   line-height 1.5
-  color BODY_COLOR
-  background BODY_COLOR
+  color clyp_dark
+  background clyp_cream
+  background-color light_gray !important
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
 
+.clyp-hero-wrapper
+  position relative
 
-
-header
-  height: 54px;
-  width: 100%;
-  position: relative;
-  z-index: 10;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-.fixed-elements
-  width: 100%;
-  z-index: 10;
-  -webkit-transform: translateZ(0);
-
-.fixed-header
-  height: 54px;
-  position: fixed;
-  -webkit-transform: translateZ(0);
-  padding: 4px 0;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  background-color: #FDFFFC;
-  width: 100%;
-  box-shadow: 0 2px 2px rgba(9, 12, 35, 0.1);
-  z-index: 10;
-
-.fixed-header .notifications-nav-action-small
-  position: relative;
-  left: 21px;
-
-.fixed-header-bumper
-  height: 54px;
-
-
-.fixed-banner-wrapper
-  height: 48px;
-
-.fixed-banner
-  background-color: #3DBEB3;
-  height: 48px;
-  padding: 0;
-  position: fixed;
-  -webkit-transform: translateZ(0);
-  text-align: center;
-  width: 100%;
-  z-index: 9;
-
-.fixed-banner-text
-  color: #FDFFFC;
-  display: inline;
-  font-weight: 400;
-  height: 48px;
-  line-height: 48px;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-
-.nav-action
-  margin-right: 20px;
-  letter-spacing: 0.01em;
-
-.nav-action:last-child
-.nav-action.login
-  margin-right: 0;
-
-.nav-actions
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  position: relative;
-  margin-left: auto;
-
-
-/*
-vendor(prop, args)
-  -webkit-{prop} args
-  -moz-{prop} args
-  {prop} args
-
-box-sizing()
-  vendor('box-sizing', arguments)
-*/
-
-*
-*:before
-*:after
-  box-sizing inherit
-
-
-@media screen and (min-width: 48em)
-  header
-  .fixed-header-bumper
-    height: 64px;
-  .fixed-header
-    height: 64px;
-    padding: 9px 10px;
-  .header-menu
-    width: 120px;
-    top: 64px;
-    &.notification-menu
-      width: 290px;
-      & a:hover
-        background-color: #F1F3F3;
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-    & .header-notification-card:hover
-    & a:hover
-      background-color: #F3F4F4;
-    &.is-open
-      padding: 0;
-  .tt-dropdown-menu
-    width: calc(100% - 20px);
-    margin-top: 12px;
-  .remodal.user-account
-    max-width: 420px;
-  .remodal-error-inline
-    top: 0;
-
-
-@media screen and (min-width: 64em)
-  .large-3
-    width: 25%;
-  .large-9
-    width: 75%;
-
-.small-12
-  width: 100%;
-
-
-@media screen and (min-width: 48em)
-  .hero
-    padding 32px 20px
-  .headline
-    font-size 40px
-  .sub-headline
-    font-size 24px
-
-/*
-.row
-  // max-width: 68.75rem;
-  margin-left: -15px;
-  margin-right: -15px;
-  &::before
-  &::after
-    content: ' ';
-    display: table;
-  &::after
-    clear: both;
-  &.collapse
-    & .column:nth-child(1)
-    & .columns:nth-child(1)
-      padding-left: 0;
-      padding-right: 0;
-  & .row
-    margin-left: -0.625rem;
-    margin-right: -0.625rem;
-    @media screen and (min-width: 48em)
-      &
-        margin-left: -0.9375rem;
-        margin-right: -0.9375rem;
-    &.collapse
-      margin-left: 0;
-      margin-right: 0;
-  &.expanded
-    max-width: none;
-
-.column
-.columns
-  padding-left: 0.625rem;
-  padding-right: 0.625rem;
-  width: 100%;
-  float: left;
-  @media screen and (min-width: 48em)
-    .column
-    .columns
-      padding-left: 0.9375rem;
-      padding-right: 0.9375rem;
-  .column:last-child:not(:first-child)
-  .columns:last-child:not(:first-child)
-    float: right;
-  .column.end:last-child:last-child
-  .end.columns:last-child:last-child
-    float: left;
-
-.column.row.row
-.row.row.columns
-  float: none;
-  .row .column.row.row
-  .row .row.row.columns
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: 0;
-    margin-right: 0;
-
-.row
-  width: 100%;
-*/
-
-.modal-bottom-element
-  margin-bottom: 0;
-
-.modal-button
-  font-size: 1.2em;
-  font-weight: 300;
-  width: 100%;
-
-.modal-checkbox
-  position: relative;
-  top: 1px;
-
-.modal-checkbox-label
-  float: left;
-  font-size: 16px;
-
-.upload-modal
-  max-width: none;
-  overflow: hidden;
-  width: 100%;
-  background-color: white;
-
-.file-upload-box
-  width: 100%;
-
-.upload-zone
-  width: 100%;
-  height: 363px;
-  margin: 20px 0 15px 0;
-  border-radius: 4px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  background-color: #E4E5E5;
-  cursor: pointer;
-  &:hover .upload-icon
-    background-size: 100%;
-  &:hover .upload-text
-    color: #5F6D7A;
-
-.upload-input
-  display: none;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  z-index: 10001;
-
-$fa-var-icon-upload = "\f01b";
-.upload-icon
-  fa(icon-upload);
-  font-size: 5em;
-  background-repeat: no-repeat;
-  background-position: center;
-
-.upload-text
-  padding-top 10px
-  width 142px;
-  color #8C95A0
+.clyp-hero
+  background-color clyp_dark
+  width 100%
+  display -ms-flexbox
+  display flex
+  -ms-flex-direction column
+      flex-direction column
+  -ms-flex-align center
+      align-items center
+  -ms-flex-pack center
+      justify-content center
+  color clyp_cream
   text-align center
+  padding: 20px 10px;
 
-.cancel-file-upload-button-container
-  position: absolute;
-  width: 100%;
-  bottom: 50px;
-  left: 0;
-
-.cancel-file-upload-button
-  cursor: pointer;
-  display: inline;
-
-.upload-processing-text
-  position: absolute;
-  font-style: italic;
-  width: 100%;
-  top: 50px;
-  left: 0;
-
-.upload-error-circle
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border-style: solid;
-  border-color: #E2665A;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-direction: column;
-  flex-direction: column;
-
-
-.container-fluid
-  padding: 0px;
-
-@media (max-width: 797px)
-    body
-        padding-left: 0px;
-        padding-right: 0px;
-
-.source-tabs
-  display: -ms-flexbox;
-  display: flex;
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-  height: 40px;
-  border-bottom: 1px solid #E4E5E5;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  & .tab
-    height: 100%;
-    min-width: 50%;
-    padding: 4px 10px 0 10px;
-    cursor: pointer;
-    text-transform: uppercase;
-    color: #8C95A0;
-    &.is-active
-      border-bottom: 4px solid #3DBEB3;
-      color: #3DBEB3;
-    &:not(.is-active):hover
-      color: #5F6D7A;
-
+@media screen and (min-width 48em)
+  .clyp-hero
+    padding 32px 20px
 
 .terms-clause
   font-size 13px
   text-align center
   width 100%
-  position absolute
+  //position absolute
   bottom 2px
   & a
-    color TEXT_COLOR
+    color clyp_green

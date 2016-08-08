@@ -7,19 +7,18 @@ import * as clypActions  from "../../actions/clypActions";
 
 const ClypHeader = ({ track, onDrop }) => {
   return (
-    <div className="fixed-elements">
+    <div className="fixed-elements row">
       <header id="clyp-header">
         <div className="fixed-header">
           <Link to="/" className="clyp-logo-wrapper">
             <img src="/public/img/logo/clyp-logo-primary-98x44.svg" className="clyp-logo" alt="Clyp logo"/>
           </Link>
           <div className="nav-actions">
-            <div className="nav-action">
-              <UploadModal
-                onDrop={onDrop}
-                classes="button upload-button primary tiny"
-              />
-            </div>
+            <UploadModal
+              onDrop={onDrop}
+              bsStyle="primary"
+              bsSize="small"
+            />
           </div>
         </div>
       </header>

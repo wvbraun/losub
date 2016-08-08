@@ -83,22 +83,9 @@ class ClypApi {
   }
 
   static saveTrack(track) {
-    /*
-    track = Object.assign({},
-      { preview: track.preview,
-        name: track.name,
-        size: track.size,
-        lastModified: track.lastModified,
-        lastModifiedDate: track.lastModifiedDate,
-        type: track.type,
-        webkitRelativePath: track.webkitRelativePath
-      });
-    let tmp = JSON.stringify(track);
-    */
-    let form = new FormData();
+    const form = new FormData();
     form.append('audioFile', track);
-    let tmp = form.get('audioFile');
-    let settings = {
+    const settings = {
       method: 'POST',
       body: form
     };
@@ -109,12 +96,7 @@ class ClypApi {
           return response.json();
         })
         .then((savedTrack) => {
-          const minLength = 1;
-          if (savedTrack.Title.length < minLength) {
-            reject(`Name must be at least ${minLength} characters.`);
-          } else {
-            resolve(Object.assign({}, savedTrack));
-          }
+          resolve(Object.assign({}, savedTrack));
         })
         .catch((error) => {
           throw(error);

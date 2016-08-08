@@ -1,0 +1,39 @@
+@import '../config'
+
+.btn
+  overflow visible
+
+.upload-button
+  margin: 4px auto;
+  width: 200px;
+
+header#clyp-header
+  .btn
+    border-radius 100px !important
+    padding 0 !important
+    border 0
+    position relative
+    &.disabled
+      opacity .4
+      cursor default
+    &:active
+    &:hover
+      cursor pointer
+    &:focus
+      outline none
+
+  .btn-primary
+    color clyp_cream !important
+    background-color clyp_gold !important
+    border 1px solid clyp_gold !important
+    &:active
+    &:hover
+      background-color clyp_gold_dark !important
+      border 1px solid clyp_gold_dark !important
+
+  .btn-sm
+    font-size 16px !important
+    line-height 28px !important
+    width 112px
+    height 30px
+    border 1px solid clyp_gold !important

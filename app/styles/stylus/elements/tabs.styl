@@ -1,0 +1,118 @@
+@import '../config'
+
+.cards-wrapper
+  max-width 79.50rem
+  margin 20px 0
+  position relative
+  overflow hidden
+
+@media only screen and (min-width: 1024px)
+  .cards-wrapper
+    margin 20px 20px 20px 0
+
+@media screen and (min-width: 768px)
+
+  .cards-wrapper
+    width 100%
+@media screen and (min-width: 48em)
+  .clyp-tabs-wrapper
+    ul.nav.nav-tabs
+      padding-left 1.5rem !important
+      padding-right 1.5rem !important
+
+.clyp-tabs-wrapper
+  & .tab-content
+    & .row
+      max-width 110rem
+      margin-left auto
+      margin-right auto
+
+  ul.nav.nav-tabs
+    border none
+    background-color clyp_cream
+    position relative
+    box-shadow 0 2px 2px rgba(9, 12, 35, 0.1)
+    display -ms-flexbox
+    display flex
+    max-width 110rem
+    width 100%
+    margin 0 auto
+    height 54px
+    padding-left 1.0rem
+    padding-right 1.0rem
+  li
+    overflow hidden
+    cursor pointer !important
+    & a
+      color clyp_gray
+      display inline-block
+      border none !important
+      text-transform uppercase
+      text-align center
+      height 54px
+      line-height 54px !important
+      padding 0 10px !important
+      &:focus
+        outline none
+      &:hover
+        color clyp_dark
+        background clyp_cream !important
+        text-decoration none
+    &.active
+      & a
+      & a:focus
+      & a:hover
+        color clyp_green !important
+        cursor pointer !important
+        border-bottom 4px solid clyp_green !important
+
+.default-tabs-content
+  position relative
+  &.upload-tabs .tab
+    max-height 420px
+    height 420px
+  &.edit-tabs
+    overflow hidden
+  & .tab
+    opacity 0
+    transition left .5s ease-in-out, position 0.001s ease-in-out .5s, margin 0.001s ease-in-out .5s, opacity 0.001s ease-in-out .5s
+    width 100%
+    position absolute
+    top 0
+    &.active
+      margin-top 0
+      left 0
+      position relative
+      display block
+      opacity 1
+      transition left .5s ease-in-out, position 0.001s ease-in-out .5s, margin 0.001s ease-in-out, opacity 0.001s ease-in-out
+
+.upload-tab
+  left -100%
+
+.source-tabs
+  display -ms-flexbox
+  display flex
+  list-style none
+  padding-left 0
+  margin 0
+  text-align center
+  height 40px
+  border-bottom 1px solid #E4E5E5
+  -webkit-user-select none
+  -moz-user-select none
+  -ms-user-select none
+  user-select none
+
+  & .tab
+    height 100%
+    min-width 50%
+    padding 4px 10px 0 10px
+    cursor pointer
+    text-transform uppercase
+    color #8C95A0
+    &.is-active
+      border-bottom 4px solid clyp_green
+      color clyp_green
+    &not(.is-active)hover
+      color clyp_gray

@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { browserHistory } from "react-router";
 import ClypHeader from "./ClypHeader";
+import ClypHero from "./ClypHero";
 import * as clypActions  from "../../actions/clypActions";
 import toastr from "toastr";
 import ClypTabs from "./ClypTabs";
@@ -46,11 +47,14 @@ class ClypPage extends React.Component {
       });
   }
 
+
+  // <div className="fixed-header-bumper"></div>
   render() {
     const { track, tracks } = this.props;
     return (
-      <div>
+      <div className="container-fluid">
         <ClypHeader track={track} onDrop={this.saveTrack}/>
+        <ClypHero />
         <ClypTabs clyps={tracks} />
       </div>
     );

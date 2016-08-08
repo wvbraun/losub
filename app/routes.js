@@ -7,9 +7,6 @@ import HomePage from "./components/home/HomePage";
 import AboutPage from "./components/about/AboutPage";
 // import ClypsPage from "./components/clyp/ClypsPage";
 import ClypPage from "./components/clyp/ClypPage";
-import NewTrackPage from "./components/clyp/NewTrackPage";
-import NewPlaylistPage from "./components/clyp/NewPlaylistPage";
-import NotFoundPage from "./components/common/NotFoundPage";
 
 /*
 <Route path="/clyps/playlist" component={NewPlaylistPage} />

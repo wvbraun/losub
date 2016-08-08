@@ -1,6 +1,6 @@
 "use strict";
 
-import delay from "./delay";
+const delay = 1000;
 
 const playlists = [
   {

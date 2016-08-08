@@ -2,7 +2,9 @@
 
 import React, { PropTypes } from "react";
 import { ModalContainer, ModalDialog } from "react-modal-dialog";
+import { ButtonToolbar, Button } from "react-bootstrap";
 import Dropzone from "react-dropzone";
+
 
 const tabs = ["Upload"];
 
@@ -30,13 +32,16 @@ class UploadModal extends React.Component {
 
   render() {
     return (
-      <div>
-        <button className={this.props.classes} type="submit" onClick={this.toggleModal}>Upload</button>
+      <div className="nav-action">
+        <Button
+          type="submit"
+          bsStyle={this.props.bsStyle}
+          bsSize={this.props.bsSize}
+          onClick={this.toggleModal}>Upload</Button>
         {this.state.isModalOpen &&
           <ModalContainer onClose={this.toggleModal}>
             <ModalDialog onClose={this.toggleModal}>
-              <div className="upload-modal-wrapper">
-                <div className="widget-wrapper">
+                <div className="upload-modal">
                   <ul className="source-tabs">
                     {tabs.map((tab, i) =>
                       <li key={i} className="tab small-12 columns is-active">{tab}</li>
@@ -52,13 +57,10 @@ class UploadModal extends React.Component {
                           </div>
                         </div>
                       </Dropzone>
-                      <div className="row terms-clause-wrapper">
-                        <div className="terms-clause">{terms}</div>
-                      </div>
+                      <div className="terms-clause">{terms}</div>
                     </div>
                   </div>
                 </div>
-              </div>
             </ModalDialog>
           </ModalContainer>
         }
@@ -68,7 +70,8 @@ class UploadModal extends React.Component {
 }
 
 UploadModal.propTypes = {
-  classes: PropTypes.string,
+  bsStyle: PropTypes.string,
+  bsSize: PropTypes.string,
   onDrop: PropTypes.func.isRequired
 };
 
