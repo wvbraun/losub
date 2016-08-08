@@ -52,6 +52,41 @@ class ClypApi {
     });
   }
 
+  static saveTrack(track) {
+    const form = new FormData();
+    form.append('audioFile', track);
+    const settings = {
+      method: 'POST',
+      body: form
+    };
+
+    return new Promise((resolve, reject) => {
+      fetch('/api/clyp/upload', settings)
+        .then((response) => {
+          return response.json();
+        })
+        .then((savedTrack) => {
+          resolve(Object.assign({}, savedTrack));
+        })
+        .catch((error) => {
+          throw(error);
+        });
+    });
+  }
+/*
+  static deleteTrack(track) {
+    track = Object.assign({}, track);
+    const settings = {
+      method: 'DELETE',
+      body: JSON.stringify(track)
+    };
+
+    return new Promise((resolve, reject) => {
+      fetch('/api/clyp/')
+    });
+  }
+*/
+
   static savePlaylist(playlist) {
     let _playlist = Object.assign({}, playlist);
     let config = {
@@ -82,27 +117,6 @@ class ClypApi {
     });
   }
 
-  static saveTrack(track) {
-    const form = new FormData();
-    form.append('audioFile', track);
-    const settings = {
-      method: 'POST',
-      body: form
-    };
-
-    return new Promise((resolve, reject) => {
-      fetch('/api/clyp/upload', settings)
-        .then((response) => {
-          return response.json();
-        })
-        .then((savedTrack) => {
-          resolve(Object.assign({}, savedTrack));
-        })
-        .catch((error) => {
-          throw(error);
-        });
-    });
-  }
 }
 
 export default ClypApi;

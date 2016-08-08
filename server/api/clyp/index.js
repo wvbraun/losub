@@ -17,17 +17,6 @@ import mkdirp from "mkdirp";
 const router = express.Router();
 const agent = new HttpsProxyAgent("http://naproxy.gm.com:80");
 
-//const storage = multer.memoryStorage();
-// const upload = multer({ storage: multer.memoryStorage() });
-/*
-const upload = multer({
-  dest: 'server/tmp/uploads',
-  rename: (fieldname, filename, req, res) => {
-    return fieldname + '_' + filename + '-' + Date.now();
-  }
-});
-*/
-
 const errorHandler = (res, err = null, status = 500) => {
   return res.status(status).json(err);
 };
@@ -39,9 +28,7 @@ const storage = multer.diskStorage({
     cb(null, uploadPath);
   },
   filename: (req, file, cb) => {
-    const filename = file.originalname;
-    const ext = path.extname(filename);
-    cb(null, path.basename(filename, ext) + '_' + Date.now() + ext);
+    cb(null, path.basename(file.originalname));
   }
 });
 
@@ -65,6 +52,7 @@ const removeFile = (file) => {
 
 mkdirp.sync(uploadPath);
 
+// LOAD TRACKS
 router.get('/tracks', (req, res, next) => {
   Clyp.find({}, (err, clyps) => {
     if (err) {
@@ -77,20 +65,10 @@ router.get('/tracks', (req, res, next) => {
   });
 });
 
+// UPLOAD TRACK
 router.post('/upload', upload.single('audioFile'), (req, res, next) => {
   const form = new FormData();
   form.append("audioFile", fs.createReadStream(req.file.path));
-  /*
-  this should work, but for some reason req.file.buffer is not a real Buffer.
-  fs.readFile(Buffer.from(req.file.buffer.toString('binary')), (err, data) => {
-    if (err) {
-      throw err;
-    } else {
-      form.append("audioFile", data);
-    }
-  });
-  */
-  // agent: agent
   const settings = {
     method: 'POST',
     body: form
@@ -114,6 +92,11 @@ router.post('/upload', upload.single('audioFile'), (req, res, next) => {
       throw(error);
     });
 });
+
+
+//router.get('/')
+
+
 
 /*
 router.get("/playlists", (req, res, next) => {

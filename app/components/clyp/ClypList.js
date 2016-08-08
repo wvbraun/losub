@@ -7,7 +7,7 @@ const ClypList = ({ tracks }) => {
   return (
     <div className="row">
       <div className="col-xs-12">
-        <div className="cards-wrapper">
+        <div className="audio-cards">
           <table className="transparent-table">
             <thead>
             </thead>

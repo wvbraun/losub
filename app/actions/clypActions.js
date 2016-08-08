@@ -20,6 +20,14 @@ export function createTrackSuccess(track) {
   return { type: types.CREATE_TRACK_SUCCESS, track };
 }
 
+export function deleteTrackSuccess(track) {
+  return { type: types.DELETE_TRACK_SUCCESS, track };
+}
+
+export function deleteTrackFail(track) {
+  return { type: types.DELETE_TRACK_FAIL, track };
+}
+
 export function loadTracks() {
   return (dispatch) => {
     return ClypApi.getAllTracks()
@@ -66,4 +74,13 @@ export function saveTrack(track) {
         throw(error);
       });
   };
+
+  /*
+  export function deleteTrack(track) {
+    return (dispatch) => {
+      return ClypApi.deleteTrack(track)
+        .then(())
+    }
+  }
+  */
 }

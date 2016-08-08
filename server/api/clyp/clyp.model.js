@@ -16,6 +16,7 @@ const schema = mongoose.Schema({
 });
 */
 
+/*
 const schema = mongoose.Schema({
   ListenCount: Number,
   CommentCount: Number,
@@ -29,6 +30,24 @@ const schema = mongoose.Schema({
     ProfilePictureUrl: String,
     PublicProfileUrl: String
   },
+  AudioFileId: String,
+  Title: String,
+  Duration: Number,
+  Url: String,
+  Mp3Url: String,
+  SecureMp3Url: String,
+  OggUrl: String,
+  SecureOggUrl: String,
+  DateCreated: String
+});
+*/
+
+const schema = mongoose.Schema({
+  Status: String,
+  CommentsEnabled: Boolean,
+  Category: String,
+  PlaylistId: String,
+  PlaylistUploadToken: String,
   AudioFileId: String,
   Title: String,
   Duration: Number,

@@ -13,7 +13,9 @@ const ClypListRow = ({ track }) => {
   return (
     <tr>
       <td>
-        <iframe src={`${track.Url}/widget`} style={styles}></iframe>
+        <div className="audio-card">
+          <iframe src={`${track.Url}/widget`} style={styles}></iframe>
+        </div>
       </td>
     </tr>
   );

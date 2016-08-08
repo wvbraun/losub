@@ -1,0 +1,38 @@
+@import '../config'
+
+.audio-cards
+  max-width 79.50rem
+  margin 20px 0
+  position relative
+  overflow hidden
+
+
+.audio-card
+  width 100%
+  float left
+  background-color clyp_cream
+  border 1px solid gray_border
+  border-radius 4px
+  //padding-bottom 15px
+  margin-bottom 20px
+  overflow-wrap break-word
+  position relative
+  &:hover
+    border-color blue_gray
+  & .transparent-overlay
+    position absolute
+    height 100%
+    width 100%
+    opacity 0
+
+.audio-card .bottom-border
+  margin-bottom 8px
+  border-bottom 1px solid gray_border
+
+@media only screen and (min-width: 1024px)
+  .audio-cards
+    margin 20px 20px 20px 0
+
+@media screen and (min-width: 768px)
+  .audio-cards
+    width 100%

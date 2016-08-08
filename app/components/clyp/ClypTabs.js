@@ -4,7 +4,7 @@ import React, { PropTypes } from "react";
 import ClypList from "./ClypList";
 import ClypHero from "./ClypHero";
 //import { Tabs, Tab } from "react-tab-view";
-import { Tabs, Tab } from "react-bootstrap";
+import { Tabs, Tab, Row, Col, Nav, NavItem } from "react-bootstrap";
 
 const headers = ['Clyps', 'Playlists', 'Recent'];
 
