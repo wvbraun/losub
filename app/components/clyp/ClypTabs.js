@@ -2,9 +2,9 @@
 
 import React, { PropTypes } from "react";
 import ClypList from "./ClypList";
-import ClypHero from "./ClypHero";
 //import { Tabs, Tab } from "react-tab-view";
 import { Tabs, Tab, Row, Col, Nav, NavItem } from "react-bootstrap";
+// import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 const headers = ['Clyps', 'Playlists', 'Recent'];
 
@@ -14,7 +14,28 @@ const headers = ['Clyps', 'Playlists', 'Recent'];
         <Tab><p>Playlists</p></Tab>
         <Tab><p>Recent</p></Tab>
       </Tabs>
+
+
+
+      <Tabs selectedIndex={0}>
+        <TabList>
+          <Tab>Clyps</Tab>
+          <Tab>Playlist</Tab>
+          <Tab>Settings</Tab>
+        </TabList>
+        <TabPanel>
+          <ClypList tracks={clyps} />
+        </TabPanel>
+        <TabPanel>
+          <h2>Playlists</h2>
+        </TabPanel>
+        <TabPanel>
+          <h2>Settings</h2>
+        </TabPanel>
+      </Tabs>
 */
+
+//Tabs.setUseDefaultStyles(false);
 const ClypTabs = ({ clyps }) => {
   return (
     <div className="clyp-tabs-wrapper row">
@@ -24,6 +45,9 @@ const ClypTabs = ({ clyps }) => {
         </Tab>
         <Tab eventKey={2} title="Playlists">
           <p>Playlists</p>
+        </Tab>
+        <Tab eventKey={3} title="Settings">
+          <p>Settings</p>
         </Tab>
       </Tabs>
     </div>

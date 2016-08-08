@@ -70,6 +70,7 @@ router.post('/upload', upload.single('audioFile'), (req, res, next) => {
   const form = new FormData();
   form.append("audioFile", fs.createReadStream(req.file.path));
   const settings = {
+    agent: agent,
     method: 'POST',
     body: form
   };
