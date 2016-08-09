@@ -5,6 +5,7 @@ import * as $ from "jquery";
 import React, { PropTypes } from "react";
 import Header from "./common/Header";
 import Sidebar from "./common/Sidebar";
+import Footer from "./common/footer";
 
 // import { connect } from "react-redux";
 
@@ -13,8 +14,9 @@ import Sidebar from "./common/Sidebar";
 class App extends React.Component {
   render() {
     return (
-      <div className="site-container">
+      <div>
         {this.props.children}
+        <Footer />
       </div>
     );
   }

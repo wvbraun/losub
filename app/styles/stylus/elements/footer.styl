@@ -1,0 +1,46 @@
+@import '../config'
+
+.footer-section
+  display -ms-flexbox
+  display flex
+  -ms-flex-align center
+  align-items center
+  -ms-flex-preferred-size 33.33%
+  flex-basis 33.33%
+  -ms-flex-pack center
+  justify-content center
+
+
+.link-list
+  list-style none
+  padding 0
+  display -ms-flexbox
+  display flex
+  margin 0
+  & a
+    color clyp_gray !important
+  & li
+    display list-item !important
+    text-align -webkit-match-parent
+    padding 0 12px
+    position relative
+    & a
+      color clyp_gray
+  & li:first-child
+    padding-left 0
+
+@media screen and (min-width: 48em)
+  .link-list li
+    padding: 0 15px
+
+
+@media screen and (min-width 48em)
+  .footer-section.footer-links
+    -ms-flex-pack start
+    justify-content flex-start
+
+@media screen and (min-width 48em)
+  .footer-section
+    -ms-flex-align stretch
+    -ms-grid-row-align stretch
+    align-items stretch
